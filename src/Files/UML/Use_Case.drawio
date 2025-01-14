@@ -1,0 +1,214 @@
+<mxfile host="65bd71144e">
+    <diagram name="Page-1" id="eL7OtAQJyphSRFPmEqrO">
+        <mxGraphModel dx="4160" dy="12177" grid="0" gridSize="10" guides="0" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="3300" pageHeight="4681" background="#ffffff" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="9coayfkCWoQ1-N5OWXU_-3" value="$" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" parent="1" vertex="1">
+                    <mxGeometry x="983" y="-4708" width="5342" height="4572" as="geometry"/>
+                </mxCell>
+                <mxCell id="9coayfkCWoQ1-N5OWXU_-4" value="&lt;h1 style=&quot;box-sizing: border-box; border: 0px solid; --tw-border-spacing-x: 0; --tw-border-spacing-y: 0; --tw-translate-x: 0; --tw-translate-y: 0; --tw-rotate: 0; --tw-skew-x: 0; --tw-skew-y: 0; --tw-scale-x: 1; --tw-scale-y: 1; --tw-pan-x: ; --tw-pan-y: ; --tw-pinch-zoom: ; --tw-scroll-snap-strictness: proximity; --tw-gradient-from-position: ; --tw-gradient-via-position: ; --tw-gradient-to-position: ; --tw-ordinal: ; --tw-slashed-zero: ; --tw-numeric-figure: ; --tw-numeric-spacing: ; --tw-numeric-fraction: ; --tw-ring-inset: ; --tw-ring-offset-width: 0px; --tw-ring-offset-color: #fff; --tw-ring-color: rgba(59,130,246,.5); --tw-ring-offset-shadow: 0 0 #0000; --tw-ring-shadow: 0 0 #0000; --tw-shadow: 0 0 #0000; --tw-shadow-colored: 0 0 #0000; --tw-blur: ; --tw-brightness: ; --tw-contrast: ; --tw-grayscale: ; --tw-hue-rotate: ; --tw-invert: ; --tw-saturate: ; --tw-sepia: ; --tw-drop-shadow: ; --tw-backdrop-blur: ; --tw-backdrop-brightness: ; --tw-backdrop-contrast: ; --tw-backdrop-grayscale: ; --tw-backdrop-hue-rotate: ; --tw-backdrop-invert: ; --tw-backdrop-opacity: ; --tw-backdrop-saturate: ; --tw-backdrop-sepia: ; --tw-contain-size: ; --tw-contain-layout: ; --tw-contain-paint: ; --tw-contain-style: ; margin: 0px; line-height: 2rem; text-align: start; background-color: rgb(255, 255, 255);&quot; class=&quot;sc-6a4c5dd9-0 dXTcni&quot;&gt;&lt;font color=&quot;#000000&quot; face=&quot;Georgia&quot; style=&quot;font-size: 80px;&quot;&gt;Plateforme de Cours en Ligne&lt;/font&gt;&lt;/h1&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="2587" y="-4530" width="1393" height="113" as="geometry"/>
+                </mxCell>
+                <mxCell id="9coayfkCWoQ1-N5OWXU_-33" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.3333333333333333;exitDx=0;exitDy=0;exitPerimeter=0;endArrow=none;endFill=0;strokeColor=#000000;strokeWidth=6;" parent="1" source="9coayfkCWoQ1-N5OWXU_-5" target="9coayfkCWoQ1-N5OWXU_-12" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="485" y="-3896" as="sourcePoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="26" style="jumpSize=6;html=1;exitX=1;exitY=0.3333333333333333;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#000000;strokeWidth=6;fontColor=#000000;endArrow=none;endFill=0;" edge="1" parent="1" source="9coayfkCWoQ1-N5OWXU_-5" target="25">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="9coayfkCWoQ1-N5OWXU_-5" value="&lt;span style=&quot;box-sizing: border-box; border: 0px solid; --tw-border-spacing-x: 0; --tw-border-spacing-y: 0; --tw-translate-x: 0; --tw-translate-y: 0; --tw-rotate: 0; --tw-skew-x: 0; --tw-skew-y: 0; --tw-scale-x: 1; --tw-scale-y: 1; --tw-pan-x: ; --tw-pan-y: ; --tw-pinch-zoom: ; --tw-scroll-snap-strictness: proximity; --tw-gradient-from-position: ; --tw-gradient-via-position: ; --tw-gradient-to-position: ; --tw-ordinal: ; --tw-slashed-zero: ; --tw-numeric-figure: ; --tw-numeric-spacing: ; --tw-numeric-fraction: ; --tw-ring-inset: ; --tw-ring-offset-width: 0px; --tw-ring-offset-color: #fff; --tw-ring-color: rgba(59,130,246,.5); --tw-ring-offset-shadow: 0 0 #0000; --tw-ring-shadow: 0 0 #0000; --tw-shadow: 0 0 #0000; --tw-shadow-colored: 0 0 #0000; --tw-blur: ; --tw-brightness: ; --tw-contrast: ; --tw-grayscale: ; --tw-hue-rotate: ; --tw-invert: ; --tw-saturate: ; --tw-sepia: ; --tw-drop-shadow: ; --tw-backdrop-blur: ; --tw-backdrop-brightness: ; --tw-backdrop-contrast: ; --tw-backdrop-grayscale: ; --tw-backdrop-hue-rotate: ; --tw-backdrop-invert: ; --tw-backdrop-opacity: ; --tw-backdrop-saturate: ; --tw-backdrop-sepia: ; --tw-contain-size: ; --tw-contain-layout: ; --tw-contain-paint: ; --tw-contain-style: ; font-weight: bolder; font-family: &amp;quot;Nunito Sans&amp;quot;, sans-serif; text-align: start; white-space: pre-wrap; background-color: rgb(255, 255, 255);&quot;&gt;&lt;font color=&quot;#000000&quot; style=&quot;font-size: 36px;&quot;&gt;Visiteur&lt;/font&gt;&lt;/span&gt;" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;strokeColor=#000000;fillColor=#FFFFFF;strokeWidth=4;" parent="1" vertex="1">
+                    <mxGeometry x="253" y="-4053" width="232" height="424" as="geometry"/>
+                </mxCell>
+                <mxCell id="9coayfkCWoQ1-N5OWXU_-34" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.3333333333333333;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=none;endFill=0;strokeColor=#000000;strokeWidth=6;" parent="1" source="9coayfkCWoQ1-N5OWXU_-6" target="9coayfkCWoQ1-N5OWXU_-12" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="9coayfkCWoQ1-N5OWXU_-35" value="8" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.3333333333333333;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=none;endFill=0;strokeColor=#000000;strokeWidth=6;" parent="1" source="9coayfkCWoQ1-N5OWXU_-6" target="9coayfkCWoQ1-N5OWXU_-13" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="9coayfkCWoQ1-N5OWXU_-36" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.3333333333333333;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=none;endFill=0;strokeColor=#000000;strokeWidth=6;" parent="1" source="9coayfkCWoQ1-N5OWXU_-6" target="9coayfkCWoQ1-N5OWXU_-20" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="9coayfkCWoQ1-N5OWXU_-37" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.3333333333333333;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=none;endFill=0;strokeColor=#000000;strokeWidth=6;" parent="1" source="9coayfkCWoQ1-N5OWXU_-6" target="9coayfkCWoQ1-N5OWXU_-18" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="9coayfkCWoQ1-N5OWXU_-38" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.3333333333333333;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=none;endFill=0;strokeColor=#000000;strokeWidth=6;" parent="1" source="9coayfkCWoQ1-N5OWXU_-6" target="9coayfkCWoQ1-N5OWXU_-19" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="9coayfkCWoQ1-N5OWXU_-6" value="&lt;span style=&quot;box-sizing: border-box; border: 0px solid; --tw-border-spacing-x: 0; --tw-border-spacing-y: 0; --tw-translate-x: 0; --tw-translate-y: 0; --tw-rotate: 0; --tw-skew-x: 0; --tw-skew-y: 0; --tw-scale-x: 1; --tw-scale-y: 1; --tw-pan-x: ; --tw-pan-y: ; --tw-pinch-zoom: ; --tw-scroll-snap-strictness: proximity; --tw-gradient-from-position: ; --tw-gradient-via-position: ; --tw-gradient-to-position: ; --tw-ordinal: ; --tw-slashed-zero: ; --tw-numeric-figure: ; --tw-numeric-spacing: ; --tw-numeric-fraction: ; --tw-ring-inset: ; --tw-ring-offset-width: 0px; --tw-ring-offset-color: #fff; --tw-ring-color: rgba(59,130,246,.5); --tw-ring-offset-shadow: 0 0 #0000; --tw-ring-shadow: 0 0 #0000; --tw-shadow: 0 0 #0000; --tw-shadow-colored: 0 0 #0000; --tw-blur: ; --tw-brightness: ; --tw-contrast: ; --tw-grayscale: ; --tw-hue-rotate: ; --tw-invert: ; --tw-saturate: ; --tw-sepia: ; --tw-drop-shadow: ; --tw-backdrop-blur: ; --tw-backdrop-brightness: ; --tw-backdrop-contrast: ; --tw-backdrop-grayscale: ; --tw-backdrop-hue-rotate: ; --tw-backdrop-invert: ; --tw-backdrop-opacity: ; --tw-backdrop-saturate: ; --tw-backdrop-sepia: ; --tw-contain-size: ; --tw-contain-layout: ; --tw-contain-paint: ; --tw-contain-style: ; font-weight: bolder; font-family: &amp;quot;Nunito Sans&amp;quot;, sans-serif; text-align: start; white-space: pre-wrap; background-color: rgb(255, 255, 255);&quot;&gt;&lt;font color=&quot;#000000&quot; style=&quot;font-size: 36px;&quot;&gt;Étudiant&lt;/font&gt;&lt;/span&gt;" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;strokeColor=#000000;fillColor=#FFFFFF;strokeWidth=4;" parent="1" vertex="1">
+                    <mxGeometry x="235" y="-3136" width="232" height="424" as="geometry"/>
+                </mxCell>
+                <mxCell id="9coayfkCWoQ1-N5OWXU_-40" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.3333333333333333;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=none;endFill=0;strokeColor=#000000;strokeWidth=6;" parent="1" source="9coayfkCWoQ1-N5OWXU_-10" target="9coayfkCWoQ1-N5OWXU_-16" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="9coayfkCWoQ1-N5OWXU_-41" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.3333333333333333;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=none;endFill=0;strokeColor=#000000;strokeWidth=6;" parent="1" source="9coayfkCWoQ1-N5OWXU_-10" target="9coayfkCWoQ1-N5OWXU_-17" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="9coayfkCWoQ1-N5OWXU_-42" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.3333333333333333;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=none;endFill=0;strokeColor=#000000;strokeWidth=6;" parent="1" source="9coayfkCWoQ1-N5OWXU_-10" target="9coayfkCWoQ1-N5OWXU_-14" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="9coayfkCWoQ1-N5OWXU_-10" value="&lt;span style=&quot;box-sizing: border-box; border: 0px solid; --tw-border-spacing-x: 0; --tw-border-spacing-y: 0; --tw-translate-x: 0; --tw-translate-y: 0; --tw-rotate: 0; --tw-skew-x: 0; --tw-skew-y: 0; --tw-scale-x: 1; --tw-scale-y: 1; --tw-pan-x: ; --tw-pan-y: ; --tw-pinch-zoom: ; --tw-scroll-snap-strictness: proximity; --tw-gradient-from-position: ; --tw-gradient-via-position: ; --tw-gradient-to-position: ; --tw-ordinal: ; --tw-slashed-zero: ; --tw-numeric-figure: ; --tw-numeric-spacing: ; --tw-numeric-fraction: ; --tw-ring-inset: ; --tw-ring-offset-width: 0px; --tw-ring-offset-color: #fff; --tw-ring-color: rgba(59,130,246,.5); --tw-ring-offset-shadow: 0 0 #0000; --tw-ring-shadow: 0 0 #0000; --tw-shadow: 0 0 #0000; --tw-shadow-colored: 0 0 #0000; --tw-blur: ; --tw-brightness: ; --tw-contrast: ; --tw-grayscale: ; --tw-hue-rotate: ; --tw-invert: ; --tw-saturate: ; --tw-sepia: ; --tw-drop-shadow: ; --tw-backdrop-blur: ; --tw-backdrop-brightness: ; --tw-backdrop-contrast: ; --tw-backdrop-grayscale: ; --tw-backdrop-hue-rotate: ; --tw-backdrop-invert: ; --tw-backdrop-opacity: ; --tw-backdrop-saturate: ; --tw-backdrop-sepia: ; --tw-contain-size: ; --tw-contain-layout: ; --tw-contain-paint: ; --tw-contain-style: ; font-weight: bolder; font-family: &amp;quot;Nunito Sans&amp;quot;, sans-serif; text-align: start; white-space: pre-wrap; background-color: rgb(255, 255, 255);&quot;&gt;&lt;font color=&quot;#000000&quot; style=&quot;font-size: 36px;&quot;&gt;Enseignant&lt;/font&gt;&lt;/span&gt;" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;strokeColor=#000000;fillColor=#FFFFFF;strokeWidth=4;" parent="1" vertex="1">
+                    <mxGeometry x="234" y="-2477" width="232" height="424" as="geometry"/>
+                </mxCell>
+                <mxCell id="9coayfkCWoQ1-N5OWXU_-12" value="&lt;span style=&quot;font-family: &amp;quot;Nunito Sans&amp;quot;, sans-serif; text-align: left; background-color: rgb(255, 255, 255);&quot;&gt;&lt;font color=&quot;#000000&quot; style=&quot;font-size: 48px;&quot;&gt;Rechercher un cours&lt;/font&gt;&lt;/span&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="1146" y="-4253" width="776" height="184" as="geometry"/>
+                </mxCell>
+                <mxCell id="12" style="edgeStyle=none;jumpSize=6;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;dashed=1;strokeColor=#000000;strokeWidth=6;fontColor=#000000;endArrow=classic;endFill=1;" edge="1" parent="1" source="9coayfkCWoQ1-N5OWXU_-13" target="9coayfkCWoQ1-N5OWXU_-29">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="9coayfkCWoQ1-N5OWXU_-13" value="&lt;div style=&quot;&quot;&gt;&lt;span style=&quot;font-family: &amp;quot;Nunito Sans&amp;quot;, sans-serif; background-color: rgb(255, 255, 255);&quot;&gt;&lt;font color=&quot;#000000&quot; style=&quot;font-size: 48px;&quot;&gt;Visualiser les catalogue&amp;nbsp;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;&quot;&gt;&lt;span style=&quot;font-family: &amp;quot;Nunito Sans&amp;quot;, sans-serif; background-color: rgb(255, 255, 255);&quot;&gt;&lt;font color=&quot;#000000&quot; style=&quot;font-size: 48px;&quot;&gt;des cours&lt;/font&gt;&lt;/span&gt;&lt;font face=&quot;Nunito Sans, sans-serif&quot; color=&quot;#707070&quot;&gt;&lt;span style=&quot;font-size: 48px;&quot;&gt;&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="1149" y="-4048" width="776" height="184" as="geometry"/>
+                </mxCell>
+                <mxCell id="18" style="edgeStyle=none;jumpSize=6;html=1;exitX=0.979;exitY=0.651;exitDx=0;exitDy=0;entryX=0.186;entryY=0.939;entryDx=0;entryDy=0;entryPerimeter=0;dashed=1;strokeColor=#000000;strokeWidth=6;fontColor=#000000;endArrow=classic;endFill=1;exitPerimeter=0;" edge="1" parent="1" source="9coayfkCWoQ1-N5OWXU_-14" target="9coayfkCWoQ1-N5OWXU_-29">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="9coayfkCWoQ1-N5OWXU_-14" value="&lt;font color=&quot;#000000&quot; style=&quot;font-size: 48px;&quot;&gt;Gérer les cours&lt;/font&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="1098" y="-2249" width="776" height="184" as="geometry"/>
+                </mxCell>
+                <mxCell id="19" style="edgeStyle=none;jumpSize=6;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.368;entryY=0.991;entryDx=0;entryDy=0;entryPerimeter=0;dashed=1;strokeColor=#000000;strokeWidth=6;fontColor=#000000;endArrow=classic;endFill=1;" edge="1" parent="1" source="9coayfkCWoQ1-N5OWXU_-15" target="9coayfkCWoQ1-N5OWXU_-29">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="9coayfkCWoQ1-N5OWXU_-15" value="&lt;span style=&quot;font-family: &amp;quot;Nunito Sans&amp;quot;, sans-serif; text-align: left; background-color: rgb(255, 255, 255);&quot;&gt;&lt;font color=&quot;#000000&quot; style=&quot;font-size: 48px;&quot;&gt;Gérer les comptes enseignants&lt;/font&gt;&lt;/span&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="1128" y="-1795" width="776" height="184" as="geometry"/>
+                </mxCell>
+                <mxCell id="16" style="edgeStyle=none;jumpSize=6;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;dashed=1;strokeColor=#000000;strokeWidth=6;fontColor=#000000;endArrow=classic;endFill=1;" edge="1" parent="1" source="9coayfkCWoQ1-N5OWXU_-16" target="9coayfkCWoQ1-N5OWXU_-29">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="9coayfkCWoQ1-N5OWXU_-16" value="&lt;font color=&quot;#000000&quot; style=&quot;font-size: 48px;&quot;&gt;Ajouter un nouveau cours&lt;/font&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="1121" y="-2981" width="776" height="184" as="geometry"/>
+                </mxCell>
+                <mxCell id="17" style="edgeStyle=none;jumpSize=6;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.079;entryY=0.765;entryDx=0;entryDy=0;entryPerimeter=0;dashed=1;strokeColor=#000000;strokeWidth=6;fontColor=#000000;endArrow=classic;endFill=1;" edge="1" parent="1" source="9coayfkCWoQ1-N5OWXU_-17" target="9coayfkCWoQ1-N5OWXU_-29">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="9coayfkCWoQ1-N5OWXU_-17" value="&lt;span style=&quot;font-size: 48px;&quot;&gt;&lt;font color=&quot;#000000&quot;&gt;Accéder à les statistiques&amp;nbsp;&lt;/font&gt;&lt;/span&gt;&lt;div&gt;&lt;span style=&quot;font-size: 48px;&quot;&gt;&lt;font color=&quot;#000000&quot;&gt;des cours&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="1118" y="-2786" width="776" height="184" as="geometry"/>
+                </mxCell>
+                <mxCell id="14" style="edgeStyle=none;jumpSize=6;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.101;entryY=0.211;entryDx=0;entryDy=0;dashed=1;strokeColor=#000000;strokeWidth=6;fontColor=#000000;endArrow=classic;endFill=1;entryPerimeter=0;" edge="1" parent="1" source="9coayfkCWoQ1-N5OWXU_-18" target="9coayfkCWoQ1-N5OWXU_-29">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="9coayfkCWoQ1-N5OWXU_-18" value="&lt;span style=&quot;font-family: &amp;quot;Nunito Sans&amp;quot;, sans-serif; text-align: left; background-color: rgb(255, 255, 255);&quot;&gt;&lt;font color=&quot;#000000&quot; style=&quot;font-size: 48px;&quot;&gt;Inscrire à un cours&lt;/font&gt;&lt;/span&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="1153" y="-3629" width="776" height="184" as="geometry"/>
+                </mxCell>
+                <mxCell id="15" style="edgeStyle=none;jumpSize=6;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.019;entryY=0.368;entryDx=0;entryDy=0;dashed=1;strokeColor=#000000;strokeWidth=6;fontColor=#000000;endArrow=classic;endFill=1;entryPerimeter=0;" edge="1" parent="1" source="9coayfkCWoQ1-N5OWXU_-19" target="9coayfkCWoQ1-N5OWXU_-29">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="9coayfkCWoQ1-N5OWXU_-19" value="&lt;font color=&quot;#000000&quot; style=&quot;font-size: 48px;&quot;&gt;Accéder à la section &quot;Mes cours&quot;&lt;/font&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="1160" y="-3414" width="776" height="184" as="geometry"/>
+                </mxCell>
+                <mxCell id="13" style="edgeStyle=none;jumpSize=6;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;dashed=1;strokeColor=#000000;strokeWidth=6;fontColor=#000000;endArrow=classic;endFill=1;" edge="1" parent="1" source="9coayfkCWoQ1-N5OWXU_-20" target="9coayfkCWoQ1-N5OWXU_-29">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="9coayfkCWoQ1-N5OWXU_-20" value="&lt;span style=&quot;font-family: &amp;quot;Nunito Sans&amp;quot;, sans-serif; text-align: left; background-color: rgb(255, 255, 255);&quot;&gt;&lt;font color=&quot;#000000&quot; style=&quot;font-size: 48px;&quot;&gt;Consulter les détails d'un cours&lt;/font&gt;&lt;/span&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="1149" y="-3834" width="776" height="184" as="geometry"/>
+                </mxCell>
+                <mxCell id="21" style="edgeStyle=orthogonalEdgeStyle;jumpSize=6;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.755;entryY=0.992;entryDx=0;entryDy=0;dashed=1;strokeColor=#000000;strokeWidth=6;fontColor=#000000;endArrow=classic;endFill=1;entryPerimeter=0;" edge="1" parent="1" source="9coayfkCWoQ1-N5OWXU_-25" target="9coayfkCWoQ1-N5OWXU_-29">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="9coayfkCWoQ1-N5OWXU_-25" value="&lt;span style=&quot;font-family: &amp;quot;Nunito Sans&amp;quot;, sans-serif; text-align: left; background-color: rgb(255, 255, 255);&quot;&gt;&lt;font color=&quot;#000000&quot; style=&quot;font-size: 48px;&quot;&gt;Gérer les contenus&lt;/font&gt;&lt;/span&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="1142" y="-908" width="776" height="184" as="geometry"/>
+                </mxCell>
+                <mxCell id="20" style="edgeStyle=none;jumpSize=6;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.652;entryY=1.043;entryDx=0;entryDy=0;entryPerimeter=0;dashed=1;strokeColor=#000000;strokeWidth=6;fontColor=#000000;endArrow=classic;endFill=1;" edge="1" parent="1" source="9coayfkCWoQ1-N5OWXU_-26" target="9coayfkCWoQ1-N5OWXU_-29">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="9coayfkCWoQ1-N5OWXU_-26" value="&lt;span style=&quot;font-family: &amp;quot;Nunito Sans&amp;quot;, sans-serif; text-align: left; background-color: rgb(255, 255, 255);&quot;&gt;&lt;font color=&quot;#000000&quot; style=&quot;font-size: 48px;&quot;&gt;Gérer les utilisateurs&lt;/font&gt;&lt;/span&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="1144" y="-1164" width="776" height="184" as="geometry"/>
+                </mxCell>
+                <mxCell id="22" style="edgeStyle=orthogonalEdgeStyle;jumpSize=6;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;dashed=1;strokeColor=#000000;strokeWidth=6;fontColor=#000000;endArrow=classic;endFill=1;entryX=0.835;entryY=0.872;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="9coayfkCWoQ1-N5OWXU_-27" target="9coayfkCWoQ1-N5OWXU_-29">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="5515.2001953125" y="-2255.3997802734375" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="9coayfkCWoQ1-N5OWXU_-27" value="&lt;div style=&quot;text-align: left;&quot;&gt;&lt;font color=&quot;#000000&quot; face=&quot;Nunito Sans, sans-serif&quot;&gt;&lt;span style=&quot;font-size: 48px; background-color: rgb(255, 255, 255);&quot;&gt;Insérer les tags&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="1157" y="-687" width="776" height="184" as="geometry"/>
+                </mxCell>
+                <mxCell id="23" value="" style="edgeStyle=orthogonalEdgeStyle;jumpSize=6;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.911;entryY=0.8;entryDx=0;entryDy=0;dashed=1;strokeColor=#000000;strokeWidth=6;fontColor=#000000;endArrow=classic;endFill=1;entryPerimeter=0;" edge="1" parent="1" source="9coayfkCWoQ1-N5OWXU_-28" target="9coayfkCWoQ1-N5OWXU_-29">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="6094" y="-368"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="9coayfkCWoQ1-N5OWXU_-28" value="&lt;span style=&quot;font-size: 48px;&quot;&gt;&lt;font color=&quot;#000000&quot;&gt;Accéder à la section des statistiques globales&lt;/font&gt;&lt;/span&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="1158" y="-460" width="776" height="184" as="geometry"/>
+                </mxCell>
+                <mxCell id="9coayfkCWoQ1-N5OWXU_-29" value="&lt;span style=&quot;font-family: &amp;quot;Nunito Sans&amp;quot;, sans-serif; text-align: left; background-color: rgb(255, 255, 255);&quot;&gt;&lt;font color=&quot;#000000&quot; style=&quot;font-size: 48px;&quot;&gt;Authentification&lt;/font&gt;&lt;/span&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="5387" y="-2428" width="776" height="184" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" style="edgeStyle=none;html=1;exitX=1;exitY=0.3333333333333333;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#000000;fontColor=#000000;endArrow=none;endFill=0;strokeWidth=6;" edge="1" parent="1" source="9coayfkCWoQ1-N5OWXU_-30" target="9coayfkCWoQ1-N5OWXU_-15">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" style="edgeStyle=none;html=1;exitX=1;exitY=0.3333333333333333;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#000000;fontColor=#000000;endArrow=none;endFill=0;strokeWidth=6;" edge="1" parent="1" source="9coayfkCWoQ1-N5OWXU_-30" target="9coayfkCWoQ1-N5OWXU_-26">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" style="edgeStyle=none;html=1;exitX=1;exitY=0.3333333333333333;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#000000;fontColor=#000000;endArrow=none;endFill=0;strokeWidth=6;" edge="1" parent="1" source="9coayfkCWoQ1-N5OWXU_-30" target="9coayfkCWoQ1-N5OWXU_-25">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" style="edgeStyle=none;html=1;exitX=1;exitY=0.3333333333333333;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#000000;fontColor=#000000;endArrow=none;endFill=0;strokeWidth=6;" edge="1" parent="1" source="9coayfkCWoQ1-N5OWXU_-30" target="9coayfkCWoQ1-N5OWXU_-27">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" style="edgeStyle=none;html=1;exitX=1;exitY=0.3333333333333333;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#000000;fontColor=#000000;endArrow=none;endFill=0;strokeWidth=6;" edge="1" parent="1" source="9coayfkCWoQ1-N5OWXU_-30" target="9coayfkCWoQ1-N5OWXU_-28">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="9coayfkCWoQ1-N5OWXU_-30" value="&lt;span style=&quot;box-sizing: border-box; border: 0px solid; --tw-border-spacing-x: 0; --tw-border-spacing-y: 0; --tw-translate-x: 0; --tw-translate-y: 0; --tw-rotate: 0; --tw-skew-x: 0; --tw-skew-y: 0; --tw-scale-x: 1; --tw-scale-y: 1; --tw-pan-x: ; --tw-pan-y: ; --tw-pinch-zoom: ; --tw-scroll-snap-strictness: proximity; --tw-gradient-from-position: ; --tw-gradient-via-position: ; --tw-gradient-to-position: ; --tw-ordinal: ; --tw-slashed-zero: ; --tw-numeric-figure: ; --tw-numeric-spacing: ; --tw-numeric-fraction: ; --tw-ring-inset: ; --tw-ring-offset-width: 0px; --tw-ring-offset-color: #fff; --tw-ring-color: rgba(59,130,246,.5); --tw-ring-offset-shadow: 0 0 #0000; --tw-ring-shadow: 0 0 #0000; --tw-shadow: 0 0 #0000; --tw-shadow-colored: 0 0 #0000; --tw-blur: ; --tw-brightness: ; --tw-contrast: ; --tw-grayscale: ; --tw-hue-rotate: ; --tw-invert: ; --tw-saturate: ; --tw-sepia: ; --tw-drop-shadow: ; --tw-backdrop-blur: ; --tw-backdrop-brightness: ; --tw-backdrop-contrast: ; --tw-backdrop-grayscale: ; --tw-backdrop-hue-rotate: ; --tw-backdrop-invert: ; --tw-backdrop-opacity: ; --tw-backdrop-saturate: ; --tw-backdrop-sepia: ; --tw-contain-size: ; --tw-contain-layout: ; --tw-contain-paint: ; --tw-contain-style: ; font-weight: bolder; font-family: &amp;quot;Nunito Sans&amp;quot;, sans-serif; text-align: start; white-space: pre-wrap; background-color: rgb(255, 255, 255);&quot;&gt;&lt;font color=&quot;#000000&quot; style=&quot;font-size: 36px;&quot;&gt;Administrateur&lt;/font&gt;&lt;/span&gt;" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;strokeColor=#000000;fillColor=#FFFFFF;strokeWidth=4;" parent="1" vertex="1">
+                    <mxGeometry x="271" y="-1005" width="232" height="424" as="geometry"/>
+                </mxCell>
+                <mxCell id="9coayfkCWoQ1-N5OWXU_-44" value="&lt;font color=&quot;#000000&quot; style=&quot;font-size: 48px;&quot;&gt;Supprimer un cours&lt;/font&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="2349" y="-2371" width="776" height="184" as="geometry"/>
+                </mxCell>
+                <mxCell id="9coayfkCWoQ1-N5OWXU_-50" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=1;entryDx=0;entryDy=0;strokeColor=#000000;strokeWidth=6;" parent="1" source="9coayfkCWoQ1-N5OWXU_-45" target="9coayfkCWoQ1-N5OWXU_-14" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="9coayfkCWoQ1-N5OWXU_-45" value="&lt;font color=&quot;#000000&quot; style=&quot;font-size: 48px;&quot;&gt;Consulter les inscriptions&lt;/font&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="2367" y="-2140" width="776" height="184" as="geometry"/>
+                </mxCell>
+                <mxCell id="9coayfkCWoQ1-N5OWXU_-47" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0;entryDx=0;entryDy=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;strokeColor=#000000;strokeWidth=6;" parent="1" source="9coayfkCWoQ1-N5OWXU_-46" target="9coayfkCWoQ1-N5OWXU_-14" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="2596" y="-2657" as="sourcePoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="9coayfkCWoQ1-N5OWXU_-46" value="&lt;font color=&quot;#000000&quot; style=&quot;font-size: 48px;&quot;&gt;Modifier un cours&lt;/font&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="2317" y="-2562" width="776" height="184" as="geometry"/>
+                </mxCell>
+                <mxCell id="9coayfkCWoQ1-N5OWXU_-48" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#000000;strokeWidth=6;" parent="1" source="9coayfkCWoQ1-N5OWXU_-44" target="9coayfkCWoQ1-N5OWXU_-14" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="9coayfkCWoQ1-N5OWXU_-53" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0;entryDx=0;entryDy=0;strokeColor=#000000;strokeWidth=6;" parent="1" source="9coayfkCWoQ1-N5OWXU_-51" target="9coayfkCWoQ1-N5OWXU_-15" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="9coayfkCWoQ1-N5OWXU_-51" value="&lt;span style=&quot;font-family: &amp;quot;Nunito Sans&amp;quot;, sans-serif; text-align: left; background-color: rgb(255, 255, 255);&quot;&gt;&lt;font color=&quot;#000000&quot; style=&quot;font-size: 48px;&quot;&gt;Valider la demande d'inscription&lt;/font&gt;&lt;/span&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="2394" y="-1909" width="776" height="184" as="geometry"/>
+                </mxCell>
+                <mxCell id="9coayfkCWoQ1-N5OWXU_-54" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#000000;strokeWidth=6;" parent="1" source="9coayfkCWoQ1-N5OWXU_-52" target="9coayfkCWoQ1-N5OWXU_-15" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="9coayfkCWoQ1-N5OWXU_-52" value="&lt;span style=&quot;font-family: &amp;quot;Nunito Sans&amp;quot;, sans-serif; text-align: left; background-color: rgb(255, 255, 255);&quot;&gt;&lt;font color=&quot;#000000&quot; style=&quot;font-size: 48px;&quot;&gt;Refuser la demande d'inscription&lt;/font&gt;&lt;/span&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="2398" y="-1720" width="776" height="184" as="geometry"/>
+                </mxCell>
+                <mxCell id="9coayfkCWoQ1-N5OWXU_-58" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0;entryDx=0;entryDy=0;strokeColor=#000000;strokeWidth=6;" parent="1" source="9coayfkCWoQ1-N5OWXU_-55" target="9coayfkCWoQ1-N5OWXU_-26" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="9coayfkCWoQ1-N5OWXU_-55" value="&lt;span style=&quot;font-family: &amp;quot;Nunito Sans&amp;quot;, sans-serif; text-align: left; background-color: rgb(255, 255, 255);&quot;&gt;&lt;font color=&quot;#000000&quot; style=&quot;font-size: 48px;&quot;&gt;Activer un compte&lt;/font&gt;&lt;/span&gt;" style="ellipse;whiteSpace=wrap;html=1;strokeColor=#000000;fillColor=#FFFFFF;" parent="1" vertex="1">
+                    <mxGeometry x="2411" y="-1406" width="776" height="184" as="geometry"/>
+                </mxCell>
+                <mxCell id="9coayfkCWoQ1-N5OWXU_-59" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#000000;strokeWidth=6;" parent="1" source="9coayfkCWoQ1-N5OWXU_-56" target="9coayfkCWoQ1-N5OWXU_-26" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="9coayfkCWoQ1-N5OWXU_-56" value="&lt;font color=&quot;#000000&quot; style=&quot;font-size: 48px;&quot;&gt;Suspendre un compte&lt;/font&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="2409" y="-1216" width="776" height="184" as="geometry"/>
+                </mxCell>
+                <mxCell id="9coayfkCWoQ1-N5OWXU_-60" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=1;entryDx=0;entryDy=0;strokeColor=#000000;strokeWidth=6;" parent="1" source="9coayfkCWoQ1-N5OWXU_-57" target="9coayfkCWoQ1-N5OWXU_-26" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="9coayfkCWoQ1-N5OWXU_-57" value="&lt;span style=&quot;font-family: &amp;quot;Nunito Sans&amp;quot;, sans-serif; text-align: left; background-color: rgb(255, 255, 255);&quot;&gt;&lt;font color=&quot;#000000&quot; style=&quot;font-size: 48px;&quot;&gt;Supprimer un compte&lt;/font&gt;&lt;/span&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="2408" y="-1022" width="776" height="184" as="geometry"/>
+                </mxCell>
+                <mxCell id="25" value="&lt;div style=&quot;text-align: left;&quot;&gt;&lt;font face=&quot;Nunito Sans, sans-serif&quot; color=&quot;#000000&quot;&gt;&lt;span style=&quot;font-size: 48px; background-color: rgb(255, 255, 255);&quot;&gt;Inscrire&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;" vertex="1" parent="1">
+                    <mxGeometry x="1148" y="-4463" width="776" height="184" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
