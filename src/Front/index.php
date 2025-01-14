@@ -20,7 +20,7 @@
             <button type="submit">Register</button>
         </form> -->
 
-        <h1>Login</h1>
+        <!-- <h1>Login</h1>
         <form action="../Handlers/login.php" method="post">
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" required>
@@ -29,6 +29,13 @@
             <input type="password" id="password" name="password" required>
             <br>
             <button type="submit">Login</button>
+        </form> -->
+
+        <h1>Category</h1>
+        <form action="../Handlers/handleCategory.php" method="post">
+            <label for="category">Category:</label>
+            <input type="text" id="category" name="category" required>
+            <button type="submit">Add</button>
         </form>
 
 </body>
