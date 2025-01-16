@@ -1,22 +1,9 @@
 <?php
-// session_start();
-// $role = $_SESSION["role"];
+require_once "../../Classes/category.php";
+require_once "../../Classes/database.php";
 
-// if ($role !== "1") {
-//     header("Location: ../loginPage.php");
-//     exit();
-// }
-// if (session_status() == PHP_SESSION_ACTIVE) {
-//     echo '<pre>';
-//     print_r($_SESSION);
-//     echo '</pre>';
-// }
-// if (isset($_SESSION["role"])) {
-//     $role = $_SESSION["role"];
-//     echo "User role is: " . $role;
-// } else {
-//     echo "User role is not set in the session.";
-// }
+$db = Database::getInstance()->getConnection();
+$categories = Category::getAll();
 ?>
 
 <!DOCTYPE html>
@@ -60,22 +47,16 @@
         <div class="sidebar bg-purple-700 min-h-screen p-4 fixed top-16 left-0 z-10">
             <ul class="text-white">
                 <li class="mb-4">
-                    <a href="#" class="block py-2 px-4 rounded hover:bg-purple-800">Dashboard</a>
+                    <a href="teacher.php" class="block py-2 px-4 rounded hover:bg-purple-800">Dashboard</a>
                 </li>
                 <li class="mb-4">
-                    <a href="adminCourse.php" class="block py-2 px-4 rounded hover:bg-purple-800">Courses</a>
+                    <a href="addCourse.php" class="block py-2 px-4 rounded hover:bg-purple-800">Add Course</a>
                 </li>
                 <li class="mb-4">
-                    <a href="#" class="block py-2 px-4 rounded hover:bg-purple-800">Teachers</a>
+                    <a href="allCourses.php" class="block py-2 px-4 rounded hover:bg-purple-800">All Courses</a>
                 </li>
                 <li class="mb-4">
-                    <a href="#" class="block py-2 px-4 rounded hover:bg-purple-800">Students</a>
-                </li>
-                <li class="mb-4">
-                    <a href="#" class="block py-2 px-4 rounded hover:bg-purple-800">Statistics</a>
-                </li>
-                <li class="mb-4">
-                    <a href="adminTag_Cat.php" class="block py-2 px-4 rounded hover:bg-purple-800">Categories & Tags</a>
+                    <a href="statisticsCoures.php" class="block py-2 px-4 rounded hover:bg-purple-800">Statistics</a>
                 </li>
                 <li class="mb-4">
                     <a href="" class="block py-2 px-4 rounded hover:bg-purple-800">Logout</a>
@@ -83,12 +64,41 @@
             </ul>
         </div>
 
-        <!-- Main Section -->
+                <!-- Main Section -->
         <div class="main-content flex-1 p-6 ml-64 flex flex-col">
-            <h1 class="text-3xl font-bold text-purple-700 mb-6">Admin Dashboard</h1>
-            <p>Welcome, Admin! Select an option from the sidebar to get started.</p>
-            <!-- This div pushes the footer to the bottom when content is not enough -->
-            <div class="flex-grow"></div>
+            <h1 class="text-3xl font-bold text-purple-700 mb-6">Add a New Course</h1>
+            <form action="your_form_action_url" method="post" enctype="multipart/form-data" class="bg-white p-6 rounded-lg shadow-md">
+                <div class="mb-4">
+                    <label for="title" class="block text-sm font-medium text-gray-700 mb-2">Course Title</label>
+                    <input type="text" id="title" name="title" class="block w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500" required>
+                </div>
+                <div class="mb-4">
+                    <label for="description" class="block text-sm font-medium text-gray-700 mb-2">Course Description</label>
+                    <textarea id="description" name="description" rows="4" class="block w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500" required></textarea>
+                </div>
+                <div class="mb-4">
+                    <label for="category" class="block text-sm font-medium text-gray-700 mb-2">Category</label>
+                    <select id="category" name="category" class="block w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500" required>
+                        <option value="" disabled selected>Select a category</option>
+                        <?php foreach ($categories as $category): ?>
+                        <option value="<? htmlspecialchars($category->getIdCategory()) ?>"><?= htmlspecialchars($category->getName()) ?></option>
+                        <?php endforeach;?>
+                    </select>
+                </div>
+                <div class="mb-4">
+                    <label for="tags" class="block text-sm font-medium text-gray-700 mb-2">Tags</label>
+                    <input type="text" id="tags" name="tags" class="block w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500" placeholder="Enter tags separated by commas" required>
+                </div>
+                <div class="mb-4">
+                    <label for="photo" class="block text-sm font-medium text-gray-700 mb-2">Course Photo</label>
+                    <input type="file" id="photo" name="photo" accept="image/*" class="block w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500" required>
+                </div>
+                <div class="mb-4">
+                    <label for="pdf" class="block text-sm font-medium text-gray-700 mb-2">Course PDF</label>
+                    <input type="file" id="pdf" name="pdf" accept="application/pdf" class="block w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500" required>
+                </div>
+                <button type="submit" class="w-fit bg-purple-700 text-white py-2 px-4 rounded-md hover:bg-purple-800 transition">Add Course</button>
+            </form>
         </div>
     </div>
 

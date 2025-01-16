@@ -1,3 +1,17 @@
+<?php
+require_once "../../Classes/database.php";
+require_once "../../Classes/category.php";
+session_start();
+$role = $_SESSION["role_id"];
+
+if ($role !== "1") {
+    header("Location: ../loginPage.php");
+    exit();
+}
+$db = Database::getInstance()->getConnection();
+$categories = Category::getAll();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -42,7 +56,7 @@
                     <a href="#" class="block py-2 px-4 rounded hover:bg-purple-800">Dashboard</a>
                 </li>
                 <li class="mb-4">
-                    <a href="#" class="block py-2 px-4 rounded hover:bg-purple-800">Courses</a>
+                    <a href="adminCourse.php" class="block py-2 px-4 rounded hover:bg-purple-800">Courses</a>
                 </li>
                 <li class="mb-4">
                     <a href="#" class="block py-2 px-4 rounded hover:bg-purple-800">Teachers</a>
@@ -54,7 +68,10 @@
                     <a href="#" class="block py-2 px-4 rounded hover:bg-purple-800">Statistics</a>
                 </li>
                 <li class="mb-4">
-                    <a href="#" class="block py-2 px-4 rounded hover:bg-purple-800">Categories & Tags</a>
+                    <a href="adminTag_Cat.php" class="block py-2 px-4 rounded hover:bg-purple-800">Categories & Tags</a>
+                </li>
+                <li class="mb-4">
+                    <a href="" class="block py-2 px-4 rounded hover:bg-purple-800">Logout</a>
                 </li>
             </ul>
         </div>
@@ -69,32 +86,41 @@
                 <div class="grid grid-cols-2 gap-6">
                     <!-- Add Category Form -->
                     <div>
-                        <form class="bg-white p-6 rounded-lg shadow-md">
-                            <label for="category-name" class="block text-sm font-medium text-gray-700 mb-2">Category Name</label>
-                            <input type="text" id="category-name" name="category-name" class="block w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 mb-4" required>
+                        <form class="bg-white p-6 rounded-lg shadow-md" method="post" action="../../Handlers/handleCategory.php">
+                            <label for="category" class="block text-sm font-medium text-gray-700 mb-2">Category Name</label>
+                            <input type="text" id="category" name="category" class="block w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 mb-4" required>
                             <button type="submit" class="w-full bg-purple-700 text-white py-2 rounded-md hover:bg-purple-800 transition">Add Category</button>
                         </form>
                     </div>
 
                     <!-- Categories Table -->
-                    <div>
+                    <div class="overflow-x-auto">
                         <table class="min-w-full bg-white border border-gray-200 rounded-lg shadow-md">
-                            <thead class="bg-purple-700 text-white">
+                            <thead class="bg-purple-700 text-white rounded-t-lg">
                                 <tr>
-                                    <th class="py-2 px-4 border-b">Category Name</th>
-                                    <th class="py-2 px-4 border-b">Actions</th>
+                                    <th class="py-2 px-4 border-b border-gray-200 text-left">Category Name</th>
+                                    <th class="py-2 px-4 border-b border-gray-200 text-right">Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <!-- Example row -->
+                                <?php foreach ($categories as $category): ?>
                                 <tr class="bg-gray-100">
-                                    <td class="py-2 px-4 border-b">Example Category</td>
-                                    <td class="py-2 px-4 border-b">
-                                        <button class="bg-blue-500 text-white px-2 py-1 rounded hover:bg-blue-600 mr-2">Edit</button>
-                                        <button class="bg-red-500 text-white px-2 py-1 rounded hover:bg-red-600">Delete</button>
+                                    <td class="py-2 px-4 border-b border-gray-200"><?= htmlspecialchars($category->getName()) ?></td>
+                                    <td class="py-2 px-4 border-b border-gray-200 text-right">
+                                    <button class="bg-blue-500 text-white px-2 py-1 rounded hover:bg-blue-600 mr-2">
+                                            <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7" />
+                                                <path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z" />
+                                            </svg>
+                                        </button> 
+                                        <button class="bg-red-500 text-white px-2 py-1 rounded hover:bg-red-600">
+                                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                            </svg>
+                                        </button>                                 
                                     </td>
                                 </tr>
-                                <!-- Repeat rows as needed -->
+                                <?php endforeach; ?>
                             </tbody>
                         </table>
                     </div>
@@ -115,21 +141,30 @@
                     </div>
 
                     <!-- Tags Table -->
-                    <div>
+                    <div class="overflow-x-auto">
                         <table class="min-w-full bg-white border border-gray-200 rounded-lg shadow-md">
-                            <thead class="bg-purple-700 text-white">
+                            <thead class="bg-purple-700 text-white rounded-t-lg">
                                 <tr>
-                                    <th class="py-2 px-4 border-b">Tag Name</th>
-                                    <th class="py-2 px-4 border-b">Actions</th>
+                                    <th class="py-2 px-4 border-b border-gray-200 text-left">Tag Name</th>
+                                    <th class="py-2 px-4 border-b border-gray-200 text-right">Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <!-- Example row -->
                                 <tr class="bg-gray-100">
-                                    <td class="py-2 px-4 border-b">Example Tag</td>
-                                    <td class="py-2 px-4 border-b">
-                                        <button class="bg-blue-500 text-white px-2 py-1 rounded hover:bg-blue-600 mr-2">Edit</button>
-                                        <button class="bg-red-500 text-white px-2 py-1 rounded hover:bg-red-600">Delete</button>
+                                    <td class="py-2 px-4 border-b border-gray-200">Example Tag</td>
+                                    <td class="py-2 px-4 border-b border-gray-200 text-right">
+                                        <button class="bg-blue-500 text-white px-2 py-1 rounded hover:bg-blue-600 mr-2">
+                                            <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7" />
+                                                <path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z" />
+                                            </svg>
+                                        </button> 
+                                        <button class="bg-red-500 text-white px-2 py-1 rounded hover:bg-red-600">
+                                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                            </svg>
+                                        </button>   
                                     </td>
                                 </tr>
                                 <!-- Repeat rows as needed -->

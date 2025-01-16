@@ -1,24 +1,3 @@
-<?php
-// session_start();
-// $role = $_SESSION["role"];
-
-// if ($role !== "1") {
-//     header("Location: ../loginPage.php");
-//     exit();
-// }
-// if (session_status() == PHP_SESSION_ACTIVE) {
-//     echo '<pre>';
-//     print_r($_SESSION);
-//     echo '</pre>';
-// }
-// if (isset($_SESSION["role"])) {
-//     $role = $_SESSION["role"];
-//     echo "User role is: " . $role;
-// } else {
-//     echo "User role is not set in the session.";
-// }
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -63,7 +42,7 @@
                     <a href="#" class="block py-2 px-4 rounded hover:bg-purple-800">Dashboard</a>
                 </li>
                 <li class="mb-4">
-                    <a href="adminCourse.php" class="block py-2 px-4 rounded hover:bg-purple-800">Courses</a>
+                    <a href="#" class="block py-2 px-4 rounded hover:bg-purple-800">Courses</a>
                 </li>
                 <li class="mb-4">
                     <a href="#" class="block py-2 px-4 rounded hover:bg-purple-800">Teachers</a>
@@ -83,13 +62,7 @@
             </ul>
         </div>
 
-        <!-- Main Section -->
-        <div class="main-content flex-1 p-6 ml-64 flex flex-col">
-            <h1 class="text-3xl font-bold text-purple-700 mb-6">Admin Dashboard</h1>
-            <p>Welcome, Admin! Select an option from the sidebar to get started.</p>
-            <!-- This div pushes the footer to the bottom when content is not enough -->
-            <div class="flex-grow"></div>
-        </div>
+
     </div>
 
     <!-- Footer -->

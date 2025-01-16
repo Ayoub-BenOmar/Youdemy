@@ -149,6 +149,16 @@ class User {
         return null;
     }
 
+    // public static function getRoleByEmail($email) {
+    //     $db = Database::getInstance()->getConnection();
+    //     $stmt = $db->prepare("SELECT role FROM users WHERE email = :email");
+    //     $stmt->bindParam(':email', $email, PDO::PARAM_STR);
+    //     $stmt->execute();
+    //     $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    //     return $result ? $result['role'] : null;
+    // }
+
     // Method to register a new user (signup)
     public static function signup($name, $email, $password, $role_id = null) {
 
@@ -197,6 +207,7 @@ class User {
         $stmt->bindParam(':password', $this->passwordHash, PDO::PARAM_STR);
         $stmt->bindParam(':idUser', $this->idUser, PDO::PARAM_INT);
         $stmt->execute();
+
     }
 }
 ?>

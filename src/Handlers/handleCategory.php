@@ -10,7 +10,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $category = new Category();
         $category->setName($name);
         $category->save();
-        echo "naaaakokiii";
+        // echo "naaaakokiii";
+        header("Location: ../Front/admin/adminTag_Cat.php?=catgegoryAdded");
         // Set a success message in session
         // $_SESSION['success'] = "Category added successfully!";
     } catch (Exception $e) {
