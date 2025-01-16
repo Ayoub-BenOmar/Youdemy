@@ -50,7 +50,7 @@ $categories = Category::getAll();
                     <a href="teacher.php" class="block py-2 px-4 rounded hover:bg-purple-800">Dashboard</a>
                 </li>
                 <li class="mb-4">
-                    <a href="addCourse.php" class="block py-2 px-4 rounded hover:bg-purple-800">Add Course</a>
+                    <a href="addingCourse.php" class="block py-2 px-4 rounded hover:bg-purple-800">Add Course</a>
                 </li>
                 <li class="mb-4">
                     <a href="allCourses.php" class="block py-2 px-4 rounded hover:bg-purple-800">All Courses</a>
@@ -66,8 +66,13 @@ $categories = Category::getAll();
 
                 <!-- Main Section -->
         <div class="main-content flex-1 p-6 ml-64 flex flex-col">
+            <?php 
+               echo '<pre>';
+               print_r($categories);
+               echo '</pre>';
+            ?>
             <h1 class="text-3xl font-bold text-purple-700 mb-6">Add a New Course</h1>
-            <form action="your_form_action_url" method="post" enctype="multipart/form-data" class="bg-white p-6 rounded-lg shadow-md">
+            <form action="../../Handlers/addCourse.php" method="post" enctype="multipart/form-data" class="bg-white p-6 rounded-lg shadow-md">
                 <div class="mb-4">
                     <label for="title" class="block text-sm font-medium text-gray-700 mb-2">Course Title</label>
                     <input type="text" id="title" name="title" class="block w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500" required>
@@ -78,10 +83,10 @@ $categories = Category::getAll();
                 </div>
                 <div class="mb-4">
                     <label for="category" class="block text-sm font-medium text-gray-700 mb-2">Category</label>
-                    <select id="category" name="category" class="block w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500" required>
+                    <select id="category" name="idCategory" class="block w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500" >
                         <option value="" disabled selected>Select a category</option>
-                        <?php foreach ($categories as $category): ?>
-                        <option value="<? htmlspecialchars($category->getIdCategory()) ?>"><?= htmlspecialchars($category->getName()) ?></option>
+                        <?php foreach ($categories as $category):?>
+                        <option value="<?= htmlspecialchars($category->getIdCategory()) ?>"><?= htmlspecialchars($category->getName()) ?></option>
                         <?php endforeach;?>
                     </select>
                 </div>
@@ -91,11 +96,11 @@ $categories = Category::getAll();
                 </div>
                 <div class="mb-4">
                     <label for="photo" class="block text-sm font-medium text-gray-700 mb-2">Course Photo</label>
-                    <input type="file" id="photo" name="photo" accept="image/*" class="block w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500" required>
+                    <input type="file" id="photo" name="photo" accept="image/*" class="block w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500" >
                 </div>
                 <div class="mb-4">
                     <label for="pdf" class="block text-sm font-medium text-gray-700 mb-2">Course PDF</label>
-                    <input type="file" id="pdf" name="pdf" accept="application/pdf" class="block w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500" required>
+                    <input type="file" id="pdf" name="pdf" accept="application/pdf" class="block w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500" >
                 </div>
                 <button type="submit" class="w-fit bg-purple-700 text-white py-2 px-4 rounded-md hover:bg-purple-800 transition">Add Course</button>
             </form>

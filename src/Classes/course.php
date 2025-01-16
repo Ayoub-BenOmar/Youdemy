@@ -6,17 +6,19 @@ class Course {
     private $title;
     private $description;
     private $content;
-    private $categoryId;
-    private $instructorId;
+    private $image;
+    private $idCategory;
+    private $idUser;
     private $createdAt;
 
-    public function __construct($idCourse = null, $title = '', $description = '', $content = '', $categoryId = null, $instructorId = null, $createdAt = null) {
+    public function __construct($idCourse = null, $title, $description, $content, $image, $idCategory = null, $idUser = null, $createdAt = null) {
         $this->idCourse = $idCourse;
         $this->title = $title;
         $this->description = $description;
         $this->content = $content;
-        $this->categoryId = $categoryId;
-        $this->instructorId = $instructorId;
+        $this->image = $image;
+        $this->idCategory = $idCategory;
+        $this->idUser = $idUser;
         $this->createdAt = $createdAt;
     }
 
@@ -25,40 +27,52 @@ class Course {
     public function getTitle() { return $this->title; }
     public function getDescription() { return $this->description; }
     public function getContent() { return $this->content; }
-    public function getCategoryId() { return $this->categoryId; }
-    public function getInstructorId() { return $this->instructorId; }
+    public function getImage() { return $this->image; }
+    public function getIdCategory() { return $this->idCategory; }
+    public function getIdUser() { return $this->idUser; }
     public function getCreatedAt() { return $this->createdAt; }
 
     // Setters
     public function setTitle($title) { $this->title = $title; }
     public function setDescription($description) { $this->description = $description; }
     public function setContent($content) { $this->content = $content; }
-    public function setCategoryId($categoryId) { $this->categoryId = $categoryId; }
-    public function setInstructorId($instructorId) { $this->instructorId = $instructorId; }
+    public function setImage($image) { $this->image = $image; }
+    public function setIdCategory($idCategory) { $this->idCategory = $idCategory; }
+    public function setIdUser($idUser) { $this->idUser = $idUser; }
 
     // Save Course
     public function save() {
         $db = Database::getInstance()->getConnection();
         try {
             if ($this->idCourse) {
-                $stmt = $db->prepare("UPDATE courses SET title = :title, description = :description, content = :content, category_id = :categoryId, instructor_id = :instructorId WHERE idCourse = :idCourse");
+                // Update existing course
+                $stmt = $db->prepare("UPDATE courses SET title = :title, description = :description, content = :content, image = :image, idCategory = :idCategory, idUser = :idUser WHERE idCourse = :idCourse");
                 $stmt->bindParam(':idCourse', $this->idCourse, PDO::PARAM_INT);
             } else {
-                $stmt = $db->prepare("INSERT INTO courses (title, description, content, category_id, instructor_id) VALUES (:title, :description, :content, :categoryId, :instructorId)");
+                // Insert new course
+                $stmt = $db->prepare("INSERT INTO courses (title, description, content, image, idCategory, idUser) VALUES (:title, :description, :content, :image, :idCategory, :idUser)");
             }
+            // Bind parameters
             $stmt->bindParam(':title', $this->title, PDO::PARAM_STR);
             $stmt->bindParam(':description', $this->description, PDO::PARAM_STR);
             $stmt->bindParam(':content', $this->content, PDO::PARAM_STR);
-            $stmt->bindParam(':categoryId', $this->categoryId, PDO::PARAM_INT);
-            $stmt->bindParam(':instructorId', $this->instructorId, PDO::PARAM_INT);
+            $stmt->bindParam(':image', $this->image, PDO::PARAM_STR);
+            $stmt->bindParam(':idCategory', $this->idCategory, PDO::PARAM_INT);
+            $stmt->bindParam(':idUser', $this->idUser, PDO::PARAM_INT);
+            error_log("Saving course with idCategory: " . $this->idCategory);
+    
+            // Execute statement
             $stmt->execute();
+    
+            // If inserting, get the last insert ID
             if (!$this->idCourse) {
                 $this->idCourse = $db->lastInsertId();
             }
             return $this->idCourse;
         } catch (PDOException $e) {
+            // Log error and rethrow exception
             error_log("Database error: " . $e->getMessage());
-            throw new Exception("An error occurred while saving the course.");
+            throw new Exception("An error occurred while saving the course: " . $e->getMessage());
         }
     }
 
@@ -71,7 +85,7 @@ class Course {
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if ($result) {
-            return new Course($result['idCourse'], $result['title'], $result['description'], $result['content'], $result['category_id'], $result['instructor_id'], $result['created_at']);
+            return new Course($result['idCourse'], $result['title'], $result['description'], $result['content'], $result['image'], $result['idCategory'], $result['idUser'], $result['created_at']);
         }
 
         return null;
@@ -85,7 +99,7 @@ class Course {
 
         $courses = [];
         foreach ($results as $result) {
-            $courses[] = new Course($result['idCourse'], $result['title'], $result['description'], $result['content'], $result['category_id'], $result['instructor_id'], $result['created_at']);
+            $courses[] = new Course($result['idCourse'], $result['title'], $result['description'], $result['content'], $result['image'], $result['idCategory'], $result['idUser'], $result['created_at']);
         }
 
         return $courses;

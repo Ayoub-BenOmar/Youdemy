@@ -7,10 +7,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = $_POST['email'];
     $password = $_POST['password'];
     $role = $_POST['role'];
-
+    
     try {
+        echo"edfghjkl";
         User::signup($nom, $email, $password, $role);
-        echo "nik";
+        echo "nono";
         exit();
     } catch (Exception $e) {
         $error = $e->getMessage();

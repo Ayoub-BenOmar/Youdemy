@@ -4,10 +4,10 @@ require_once "../../Classes/category.php";
 session_start();
 $role = $_SESSION["role_id"];
 
-if ($role !== "1") {
-    header("Location: ../loginPage.php");
-    exit();
-}
+// if ($role !== "1") {
+//     header("Location: ../loginPage.php");
+//     exit();
+// }
 $db = Database::getInstance()->getConnection();
 $categories = Category::getAll();
 ?>
