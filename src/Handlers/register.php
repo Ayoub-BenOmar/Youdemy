@@ -1,19 +1,28 @@
 <?php
-require_once '../Classes/user.php';
 require_once '../Classes/database.php';
+require_once '../Classes/user.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $nom = $_POST['nom'];
-    $email = $_POST['email'];
-    $password = $_POST['password'];
-    $role = $_POST['role'];
-    
+    // Retrieve form data
+    $name = $_POST['name'] ?? null;
+    $email = $_POST['email'] ?? null;
+    $password = $_POST['password'] ?? null;
+    $idRole = $_POST['idRole'] ?? null;
+
+    // Validate required fields
+    // if (empty($name) || empty($email) || empty($password) || empty($idRole)) {
+    //     echo "All feilds are required";
+    //     exit;
+    // }
+
     try {
-        echo"edfghjkl";
-        User::signup($nom, $email, $password, $role);
-        echo "nono";
-        exit();
+        // Register the new user
+        $userId = User::signup($name, $email, $password, $idRole);
+        echo "l7waaaaaaaaaaaa";
     } catch (Exception $e) {
-        $error = $e->getMessage();
+        echo "tle3 lia hadchi f keri";
     }
+} else {
+    echo "law3lem";
 }
+?>

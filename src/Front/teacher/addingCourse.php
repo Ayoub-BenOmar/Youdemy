@@ -1,7 +1,13 @@
 <?php
+session_start();
 require_once "../../Classes/category.php";
 require_once "../../Classes/database.php";
-
+$role = $_SESSION['user_role'];
+// var_dump($role);
+if ($role !== 2) {
+    header("Location: ../loginPage.php");
+    exit();
+}
 $db = Database::getInstance()->getConnection();
 $categories = Category::getAll();
 ?>
@@ -59,7 +65,7 @@ $categories = Category::getAll();
                     <a href="statisticsCoures.php" class="block py-2 px-4 rounded hover:bg-purple-800">Statistics</a>
                 </li>
                 <li class="mb-4">
-                    <a href="" class="block py-2 px-4 rounded hover:bg-purple-800">Logout</a>
+                    <a href="../../Handlers/logout.php" class="block py-2 px-4 rounded hover:bg-purple-800">Logout</a>
                 </li>
             </ul>
         </div>

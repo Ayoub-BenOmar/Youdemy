@@ -1,22 +1,11 @@
 <?php
-// session_start();
-// $role = $_SESSION["role"];
-
-// if ($role !== "1") {
-//     header("Location: ../loginPage.php");
-//     exit();
-// }
-// if (session_status() == PHP_SESSION_ACTIVE) {
-//     echo '<pre>';
-//     print_r($_SESSION);
-//     echo '</pre>';
-// }
-// if (isset($_SESSION["role"])) {
-//     $role = $_SESSION["role"];
-//     echo "User role is: " . $role;
-// } else {
-//     echo "User role is not set in the session.";
-// }
+session_start();
+$role = $_SESSION['user_role'];
+// var_dump($role);
+if ($role !== 1) {
+    header("Location: ../loginPage.php");
+    exit();
+}
 ?>
 
 <!DOCTYPE html>
@@ -78,7 +67,7 @@
                     <a href="adminTag_Cat.php" class="block py-2 px-4 rounded hover:bg-purple-800">Categories & Tags</a>
                 </li>
                 <li class="mb-4">
-                    <a href="" class="block py-2 px-4 rounded hover:bg-purple-800">Logout</a>
+                    <a href="../../Handlers/logout.php" class="block py-2 px-4 rounded hover:bg-purple-800">Logout</a>
                 </li>
             </ul>
         </div>

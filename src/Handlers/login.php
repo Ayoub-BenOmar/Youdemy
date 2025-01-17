@@ -9,11 +9,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
     
     try {
         $user = User::signin($email, $password);
-        if (!isset($_SESSION['user_id']) || !isset($_SESSION['user_role'])) {
-            echo'muchkil';
-        }
-        // Set session variables
+        // Store user information in the session
         $_SESSION['user_id'] = $user->getId();
+        $_SESSION['user_name'] = $user->getName();
+        $_SESSION['user_email'] = $user->getEmail();
         $_SESSION['user_role'] = $user->getRoleId();
 
         switch ($user->getRoleId()) {

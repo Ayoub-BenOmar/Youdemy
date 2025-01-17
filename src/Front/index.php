@@ -1,4 +1,4 @@
-<?php
+<!-- <?php
 require_once "../Classes/category.php";
 require_once "../Classes/database.php";
 
@@ -8,6 +8,17 @@ $categories = Category::getAll();
     print_r($categories);
     echo '</pre>';
 
+?> -->
+
+<?php
+require_once '../Classes/database.php';
+
+try {
+    $db = Database::getInstance()->getConnection();
+    echo "Database connection is successful.";
+} catch (Exception $e) {
+    echo "Database connection failed: " . $e->getMessage();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,8 +28,8 @@ $categories = Category::getAll();
     <title>Document</title>
 </head>
 <body>
-    <!-- <h1>Register</h1>
-        <form action="../Handlers/register.php" method="post">
+    <h1>Register</h1>
+        <!-- <form action="../Handlers/register.php" method="post">
             <label for="nom">Nom:</label>
             <input type="text" id="nom" name="nom" required>
             <br>
@@ -42,14 +53,14 @@ $categories = Category::getAll();
             <button type="submit">Login</button>
         </form> -->
 
-        <!-- <h1>Category</h1>
+        <h1>Category</h1>
         <form action="../Handlers/handleCategory.php" method="post">
             <label for="category">Category:</label>
             <input type="text" id="category" name="category" required>
             <button type="submit">Add</button>
-        </form> -->
+        </form>
 
-                <h1>Login</h1>
+                <!-- <h1>Login</h1>
         <form action="../Handlers/addCourse.php" method="post">
             <label for="title">title:</label>
             <input type="text" id="title" name="title" required>
@@ -71,7 +82,7 @@ $categories = Category::getAll();
                         <?php endforeach;?>
             </select>
             <button type="submit">Login</button>
-        </form>
+        </form> -->
 
 </body>
 </html>

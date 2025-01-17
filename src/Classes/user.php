@@ -5,16 +5,16 @@ class User {
     private $email;
     private $passwordHash;
     private $status;
-    private $role_id;
+    private $idRole;
     private $created_at;
 
-    public function __construct($idUser, $name, $email, $passwordHash = null, $status = 'inactive', $role_id = null, $created_at = null) {
+    public function __construct($idUser, $name, $email, $passwordHash = null, $status = 'inactive', $idRole = null, $created_at = null) {
         $this->idUser = $idUser;
         $this->name = $name;
         $this->email = $email;
         $this->passwordHash = $passwordHash;
         $this->status = $status;
-        $this->role_id = $role_id;
+        $this->idRole = $idRole;
         $this->created_at = $created_at;
     }
 
@@ -27,7 +27,7 @@ class User {
     public function getName() { return $this->name; }
     public function getEmail() { return $this->email; }
     public function getStatus() { return $this->status; }
-    public function getRoleId() { return $this->role_id; }
+    public function getRoleId() { return $this->idRole; }
     public function getCreatedAt() { return $this->created_at; }
 
     // Password hashing method
@@ -41,22 +41,22 @@ class User {
         try {
             if ($this->idUser) {
                 // Update user
-                $stmt = $db->prepare("UPDATE users SET name = :name, email = :email, password = :password, status = :status, role_id = :role_id WHERE idUser = :idUser");
+                $stmt = $db->prepare("UPDATE users SET name = :name, email = :email, password = :password, status = :status, idRole = :idRole WHERE idUser = :idUser");
                 $stmt->bindParam(':idUser', $this->idUser, PDO::PARAM_INT);
                 $stmt->bindParam(':name', $this->name, PDO::PARAM_STR);
                 $stmt->bindParam(':email', $this->email, PDO::PARAM_STR);
                 $stmt->bindParam(':password', $this->passwordHash, PDO::PARAM_STR);
                 $stmt->bindParam(':status', $this->status, PDO::PARAM_STR);
-                $stmt->bindParam(':role_id', $this->role_id, PDO::PARAM_INT);
+                $stmt->bindParam(':idRole', $this->idRole, PDO::PARAM_INT);
                 $stmt->execute();
             } else {
                 // Insert new user
-                $stmt = $db->prepare("INSERT INTO users (name, email, password, status, role_id) VALUES (:name, :email, :password, :status, :role_id)");
+                $stmt = $db->prepare("INSERT INTO users (name, email, password, status, idRole) VALUES (:name, :email, :password, :status, :idRole)");
                 $stmt->bindParam(':name', $this->name, PDO::PARAM_STR);
                 $stmt->bindParam(':email', $this->email, PDO::PARAM_STR);
                 $stmt->bindParam(':password', $this->passwordHash, PDO::PARAM_STR);
                 $stmt->bindParam(':status', $this->status, PDO::PARAM_STR);
-                $stmt->bindParam(':role_id', $this->role_id, PDO::PARAM_INT);
+                $stmt->bindParam(':idRole', $this->idRole, PDO::PARAM_INT);
                 $stmt->execute();
                 $this->idUser = $db->lastInsertId(); // Set the new user ID
             }
@@ -92,7 +92,7 @@ class User {
                 $result['email'],
                 $result['password'],
                 $result['status'],
-                $result['role_id'],
+                $result['idRole'],
                 $result['created_at']
             );
         }
@@ -118,7 +118,7 @@ class User {
                 $result['email'],
                 $result['password'],
                 $result['status'],
-                $result['role_id'],
+                $result['idRole'],
                 $result['created_at']
             );
         }
@@ -141,7 +141,7 @@ class User {
                 $result['email'],
                 $result['password'],
                 $result['status'],
-                $result['role_id'],
+                $result['idRole'],
                 $result['created_at']
             );
         }
@@ -149,18 +149,8 @@ class User {
         return null;
     }
 
-    // public static function getRoleByEmail($email) {
-    //     $db = Database::getInstance()->getConnection();
-    //     $stmt = $db->prepare("SELECT role FROM users WHERE email = :email");
-    //     $stmt->bindParam(':email', $email, PDO::PARAM_STR);
-    //     $stmt->execute();
-    //     $result = $stmt->fetch(PDO::FETCH_ASSOC);
-
-    //     return $result ? $result['role'] : null;
-    // }
-
     // Method to register a new user (signup)
-    public static function signup($name, $email, $password, $role_id = null) {
+    public static function signup($name, $email, $password, $idRole) {
 
         // Validate email format
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -181,9 +171,8 @@ class User {
         }
 
         // Create a new user object
-        $user = new User(null, $name, $email);
+        $user = new User(null, $name, $email, null, 'active', $idRole, null);
         $user->setPasswordHash($password); // Hash the password
-        $user->role_id = $role_id;
         return $user->save();
     }
 
@@ -199,6 +188,14 @@ class User {
         return $user; // Successful login
     }
 
+    public static function logout() {
+        session_start();
+        session_unset();
+        session_destroy();
+        header("Location: ../Front/loginPage.php");
+        exit();
+    }
+
     // Method to change the user's password
     public function changePassword($newPassword) {
         $this->setPasswordHash($newPassword); // Hash the new password
@@ -207,7 +204,6 @@ class User {
         $stmt->bindParam(':password', $this->passwordHash, PDO::PARAM_STR);
         $stmt->bindParam(':idUser', $this->idUser, PDO::PARAM_INT);
         $stmt->execute();
-
     }
 }
 ?>

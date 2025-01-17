@@ -43,7 +43,7 @@
 
                 <div class="mb-4">
                     <label for="role" class="block text-purple-700">Role</label>
-                    <select id="role" name="role" class="mt-1 px-4 py-2 border rounded-lg w-full" required>
+                    <select id="role" name="idRole" class="mt-1 px-4 py-2 border rounded-lg w-full" required>
                         <option value="3">Student</option>
                         <option value="2">Teacher</option>
                     </select>

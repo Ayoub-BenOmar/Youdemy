@@ -1,13 +1,13 @@
 <?php
+session_start();
 require_once "../../Classes/database.php";
 require_once "../../Classes/category.php";
-session_start();
-$role = $_SESSION["role_id"];
-
-// if ($role !== "1") {
-//     header("Location: ../loginPage.php");
-//     exit();
-// }
+$role = $_SESSION['user_role'];
+// var_dump($role);
+if ($role !== 1) {
+    header("Location: ../loginPage.php");
+    exit();
+}
 $db = Database::getInstance()->getConnection();
 $categories = Category::getAll();
 ?>
@@ -35,7 +35,7 @@ $categories = Category::getAll();
 <body class="bg-gray-100 flex flex-col">
 
     <!-- Navbar -->
-    <nav class="bg-purple-700 p-4 fixed w-full top-0 z-20">
+    <nav class="bg-purple-700 p-4  w-full top-0 z-20">
         <div class="container mx-auto flex justify-between items-center">
             <a href="#" class="flex items-center text-white text-3xl font-bold">
                 <img src="../../Pics/logo_youdemy.png" alt="Youdemy Logo" class="h-10 w-10 mr-2">
@@ -50,10 +50,10 @@ $categories = Category::getAll();
     <!-- Main Content -->
     <div class="flex flex-1">
         <!-- Sidebar -->
-        <div class="sidebar bg-purple-700 min-h-screen p-4 fixed top-16 left-0 z-10">
+        <div class="sidebar bg-purple-700 min-h-screen p-4  top-16 left-0 z-10">
             <ul class="text-white">
                 <li class="mb-4">
-                    <a href="#" class="block py-2 px-4 rounded hover:bg-purple-800">Dashboard</a>
+                    <a href="adminDash.php" class="block py-2 px-4 rounded hover:bg-purple-800">Dashboard</a>
                 </li>
                 <li class="mb-4">
                     <a href="adminCourse.php" class="block py-2 px-4 rounded hover:bg-purple-800">Courses</a>
@@ -71,7 +71,7 @@ $categories = Category::getAll();
                     <a href="adminTag_Cat.php" class="block py-2 px-4 rounded hover:bg-purple-800">Categories & Tags</a>
                 </li>
                 <li class="mb-4">
-                    <a href="" class="block py-2 px-4 rounded hover:bg-purple-800">Logout</a>
+                    <a href="../../Handlers/logout.php" class="block py-2 px-4 rounded hover:bg-purple-800">Logout</a>
                 </li>
             </ul>
         </div>
@@ -89,7 +89,7 @@ $categories = Category::getAll();
                         <form class="bg-white p-6 rounded-lg shadow-md" method="post" action="../../Handlers/handleCategory.php">
                             <label for="category" class="block text-sm font-medium text-gray-700 mb-2">Category Name</label>
                             <input type="text" id="category" name="category" class="block w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 mb-4" required>
-                            <button type="submit" class="w-full bg-purple-700 text-white py-2 rounded-md hover:bg-purple-800 transition">Add Category</button>
+                            <button type="submit" class="w-fit bg-purple-700 text-white py-2 px-4 rounded-md hover:bg-purple-800 transition">Add Category</button>
                         </form>
                     </div>
 
@@ -136,7 +136,7 @@ $categories = Category::getAll();
                         <form class="bg-white p-6 rounded-lg shadow-md">
                             <label for="tag-name" class="block text-sm font-medium text-gray-700 mb-2">Tag Name</label>
                             <input type="text" id="tag-name" name="tag-name" class="block w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 mb-4" required>
-                            <button type="submit" class="w-full bg-purple-700 text-white py-2 rounded-md hover:bg-purple-800 transition">Add Tag</button>
+                            <button type="submit" class="w-fit bg-purple-700 text-white py-2 px-4 rounded-md hover:bg-purple-800 transition">Add Tag</button>
                         </form>
                     </div>
 

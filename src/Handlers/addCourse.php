@@ -8,7 +8,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $title = $_POST['title'];
     $description = $_POST['description'];
     $idCategory = $_POST['idCategory'];
-    echo $idCategory."<br>";
     $tags = $_POST['tags'];
     $idUser = $_SESSION['user_id'];
 
