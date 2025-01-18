@@ -69,5 +69,19 @@ class Category {
         $stmt->bindParam(':idCategory', $idCategory, PDO::PARAM_INT);
         $stmt->execute();
     }
+
+    public static function getNameById($idCategory) {
+        $db = Database::getInstance()->getConnection();
+        $stmt = $db->prepare("SELECT name FROM categories WHERE idCategory = :idCategory");
+        $stmt->bindParam(':idCategory', $idCategory, PDO::PARAM_INT);
+        $stmt->execute();
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if ($result) {
+            return $result['name'];
+        }
+
+        return null;
+    }
 }
 ?>

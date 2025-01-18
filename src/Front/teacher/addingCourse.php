@@ -3,7 +3,6 @@ session_start();
 require_once "../../Classes/category.php";
 require_once "../../Classes/database.php";
 $role = $_SESSION['user_role'];
-// var_dump($role);
 if ($role !== 2) {
     header("Location: ../loginPage.php");
     exit();
@@ -31,9 +30,25 @@ $categories = Category::getAll();
             min-height: calc(100vh - 64px); /* Full height minus navbar height */
         }
     </style>
+    <script>
+        function toggleCourseTypeFields() {
+            const typeSelect = document.getElementById('type');
+            const videoFields = document.getElementById('video-fields');
+            const pdfFields = document.getElementById('pdf-fields');
+            if (typeSelect.value === 'video') {
+                videoFields.style.display = 'block';
+                pdfFields.style.display = 'none';
+            } else if (typeSelect.value === 'pdf') {
+                videoFields.style.display = 'none';
+                pdfFields.style.display = 'block';
+            } else {
+                videoFields.style.display = 'none';
+                pdfFields.style.display = 'none';
+            }
+        }
+    </script>
 </head>
 <body class="bg-gray-100 flex flex-col">
-
     <!-- Navbar -->
     <nav class="bg-purple-700 p-4  w-full fixed top-0 z-20">
         <div class="container mx-auto flex justify-between items-center">
@@ -70,15 +85,11 @@ $categories = Category::getAll();
             </ul>
         </div>
 
-                <!-- Main Section -->
+        <!-- Main Section -->
         <div class="main-content flex-1 p-6 ml-64 flex flex-col">
-            <?php 
-               echo '<pre>';
-               print_r($categories);
-               echo '</pre>';
-            ?>
             <h1 class="text-3xl font-bold text-purple-700 mb-6">Add a New Course</h1>
             <form action="../../Handlers/addCourse.php" method="post" enctype="multipart/form-data" class="bg-white p-6 rounded-lg shadow-md">
+                <input type="hidden" name="idUser" value="<?= $_SESSION['user_id'] ?>">
                 <div class="mb-4">
                     <label for="title" class="block text-sm font-medium text-gray-700 mb-2">Course Title</label>
                     <input type="text" id="title" name="title" class="block w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500" required>
@@ -89,11 +100,11 @@ $categories = Category::getAll();
                 </div>
                 <div class="mb-4">
                     <label for="category" class="block text-sm font-medium text-gray-700 mb-2">Category</label>
-                    <select id="category" name="idCategory" class="block w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500" >
+                    <select id="category" name="idCategory" class="block w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500" required>
                         <option value="" disabled selected>Select a category</option>
-                        <?php foreach ($categories as $category):?>
+                        <?php foreach ($categories as $category): ?>
                         <option value="<?= htmlspecialchars($category->getIdCategory()) ?>"><?= htmlspecialchars($category->getName()) ?></option>
-                        <?php endforeach;?>
+                        <?php endforeach; ?>
                     </select>
                 </div>
                 <div class="mb-4">
@@ -101,19 +112,30 @@ $categories = Category::getAll();
                     <input type="text" id="tags" name="tags" class="block w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500" placeholder="Enter tags separated by commas" required>
                 </div>
                 <div class="mb-4">
-                    <label for="photo" class="block text-sm font-medium text-gray-700 mb-2">Course Photo</label>
-                    <input type="file" id="photo" name="photo" accept="image/*" class="block w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500" >
+                    <label for="photo" enctype="multipart/form-data" class="block text-sm font-medium text-gray-700 mb-2">Course Photo</label>
+                    <input type="file" id="photo" name="photo" accept="image/*" class="block w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500">
                 </div>
                 <div class="mb-4">
+                    <label for="type" class="block text-sm font-medium text-gray-700 mb-2">Course Type</label>
+                    <select id="type" name="type" class="block w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500" onchange="toggleCourseTypeFields()" required>
+                        <option value="" disabled selected>Select course type</option>
+                        <option value="video">Video</option>
+                        <option value="pdf">PDF</option>
+                    </select>
+                </div>
+                <div id="video-fields" class="mb-4" style="display:none;">
+                    <label for="video" class="block text-sm font-medium text-gray-700 mb-2">Video URL</label>
+                    <input type="text" id="video" name="video" class="block w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500">
+                </div>
+                <div id="pdf-fields" class="mb-4" style="display:none;">
                     <label for="pdf" class="block text-sm font-medium text-gray-700 mb-2">Course PDF</label>
-                    <input type="file" id="pdf" name="pdf" accept="application/pdf" class="block w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500" >
+                    <input type="file" id="pdf" name="pdf" accept="application/pdf" class="block w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500">
                 </div>
                 <button type="submit" class="w-fit bg-purple-700 text-white py-2 px-4 rounded-md hover:bg-purple-800 transition">Add Course</button>
             </form>
         </div>
     </div>
 
-    <!-- Footer -->
     <footer class="bg-purple-700 p-4 mt-8">
         <div class="max-w-screen-xl px-4 py-12 mx-auto space-y-8 overflow-hidden sm:px-6 lg:px-8">
             <nav class="flex flex-wrap justify-center -mx-5 -my-2">
@@ -185,6 +207,5 @@ $categories = Category::getAll();
             </p>
         </div>
     </footer>
-
 </body>
 </html>

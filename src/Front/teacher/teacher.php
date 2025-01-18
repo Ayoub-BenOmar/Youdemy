@@ -52,7 +52,7 @@ if ($role !== 2) {
                     <a href="teacher.php" class="block py-2 px-4 rounded hover:bg-purple-800">Dashboard</a>
                 </li>
                 <li class="mb-4">
-                    <a href="addCourse.php" class="block py-2 px-4 rounded hover:bg-purple-800">Add Course</a>
+                    <a href="addingCourse.php" class="block py-2 px-4 rounded hover:bg-purple-800">Add Course</a>
                 </li>
                 <li class="mb-4">
                     <a href="allCourses.php" class="block py-2 px-4 rounded hover:bg-purple-800">All Courses</a>

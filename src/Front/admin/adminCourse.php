@@ -1,3 +1,18 @@
+<?php
+session_start();
+require_once "../../Classes/database.php";
+require_once "../../Classes/category.php";
+require_once "../../Classes/course.php";
+
+$role = $_SESSION['user_role'];
+if ($role !== 1) {
+    header("Location: ../loginPage.php");
+    exit();
+}
+
+$db = Database::getInstance()->getConnection();
+$courses = Course::getAllCourses();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,10 +54,10 @@
         <div class="sidebar bg-purple-700 min-h-screen p-4 fixed top-16 left-0 z-10">
             <ul class="text-white">
                 <li class="mb-4">
-                    <a href="#" class="block py-2 px-4 rounded hover:bg-purple-800">Dashboard</a>
+                    <a href="adminCash.php" class="block py-2 px-4 rounded hover:bg-purple-800">Dashboard</a>
                 </li>
                 <li class="mb-4">
-                    <a href="#" class="block py-2 px-4 rounded hover:bg-purple-800">Courses</a>
+                    <a href="adminCourse.php" class="block py-2 px-4 rounded hover:bg-purple-800">Courses</a>
                 </li>
                 <li class="mb-4">
                     <a href="#" class="block py-2 px-4 rounded hover:bg-purple-800">Teachers</a>
@@ -57,12 +72,34 @@
                     <a href="adminTag_Cat.php" class="block py-2 px-4 rounded hover:bg-purple-800">Categories & Tags</a>
                 </li>
                 <li class="mb-4">
-                    <a href="" class="block py-2 px-4 rounded hover:bg-purple-800">Logout</a>
+                    <a href="../../Handlers/logout.php" class="block py-2 px-4 rounded hover:bg-purple-800">Logout</a>
                 </li>
             </ul>
         </div>
 
-
+                <!-- Main Section -->
+                <div class="main-content flex-1 p-6 ml-64 flex flex-col">
+            <h1 class="text-3xl font-bold text-purple-700 mb-6">All Courses</h1>
+            <div class="grid grid-cols-3 gap-6">
+                <?php foreach ($courses as $course): ?>
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <?php if ($course['image']): ?>
+                        <img src="../<?= htmlspecialchars($course['image']) ?>" alt="<?= htmlspecialchars($course['title']) ?>" class="w-full h-48 object-cover">
+                    <?php else: ?>
+                        <div class="w-full h-48 bg-gray-200 flex items-center justify-center">
+                            <span class="text-gray-500">No Image</span>
+                        </div>
+                    <?php endif; ?>
+                        <div class="p-4">
+                            <h2 class="text-xl font-bold text-purple-700 mb-2"><?= htmlspecialchars($course['title']) ?></h2>
+                            <p class="text-gray-700 mb-4"><?= htmlspecialchars($course['description']) ?></p>
+                            <p class="text-gray-500 text-sm mb-2">Created on: <?= htmlspecialchars(date('F j, Y', strtotime($course['created_at']))) ?></p>
+                            <p class="text-gray-500 text-sm">Category: <?= htmlspecialchars(Category::getNameById($course['idCategory'])) ?></p>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+        </div>
     </div>
 
     <!-- Footer -->

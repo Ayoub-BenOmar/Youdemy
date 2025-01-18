@@ -1,68 +1,48 @@
 <?php
 require_once '../Classes/database.php';
 require_once '../Classes/course.php';
-
-session_start();
+require_once '../Classes/contentCourse.php';
+require_once '../Classes/videoCourse.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $title = $_POST['title'];
     $description = $_POST['description'];
     $idCategory = $_POST['idCategory'];
-    $tags = $_POST['tags'];
-    $idUser = $_SESSION['user_id'];
+    $idUser = $_POST['idUser'];
+    $type = $_POST['type'];
 
-    $content = null;
     $image = null;
-
-    // Handle file upload for content (video or document)
-    // if (isset($_FILES['content']) && $_FILES['content']['error'] === UPLOAD_ERR_OK) {
-    //     $fileTmpPath = $_FILES['content']['tmp_name'];
-    //     $fileName = $_FILES['content']['name'];
-    //     $fileNameCmps = explode(".", $fileName);
-    //     $fileExtension = strtolower(end($fileNameCmps));
-    //     $newFileName = md5(time() . $fileName) . '.' . $fileExtension;
-    //     $uploadFileDir = '../uploads/contents/';
-    //     $dest_path = $uploadFileDir . $newFileName;
-
-    //     if (move_uploaded_file($fileTmpPath, $dest_path)) {
-    //         $content = $dest_path;
-    //     } else {
-    //         $error = "There was an error uploading the content file.";
-    //     }
-    // } else {
-    //     $error = "No content file uploaded or there was an upload error.";
-    // }
-
-    // // Handle file upload for image
-    // if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
-    //     $fileTmpPath = $_FILES['image']['tmp_name'];
-    //     $fileName = $_FILES['image']['name'];
-    //     $fileNameCmps = explode(".", $fileName);
-    //     $fileExtension = strtolower(end($fileNameCmps));
-    //     $newFileName = md5(time() . $fileName) . '.' . $fileExtension;
-    //     $uploadFileDir = '../uploads/images/';
-    //     $dest_path = $uploadFileDir . $newFileName;
-
-    //     if (move_uploaded_file($fileTmpPath, $dest_path)) {
-    //         $image = $dest_path;
-    //     } else {
-    //         $error = "There was an error uploading the image file.";
-    //     }
-    // } else {
-    //     $error = "No image file uploaded or there was an upload error.";
-    // }
-
-    if (!isset($error)) {
-        try {
-            $course = new Course(null, $title, $description, $content, $image, $idCategory, $idUser);
-            $courseId = $course->save();
-            header("Location: ../Front/teacher/addCourse.php?courseAdded=true");
-            exit();
-        } catch (Exception $e) {
-            echo $e->getMessage();
-        }
-    } else {
-        echo $error;
+    if (isset($_FILES['photo']) && $_FILES['photo']['error'] === UPLOAD_ERR_OK) {
+        $image = basename($_FILES['photo']['name']);
+        $targetDir = '../Uploads/';
+        $targetFilePath = $targetDir . $image;
+        move_uploaded_file($_FILES['photo']['tmp_name'], $targetFilePath);
     }
+
+    try {
+        if ($type === 'video') {
+            $video = $_POST['video'];
+            $course = new VideoCourse(null, $title, $description, $targetFilePath, $idCategory, $idUser, null, $video);
+        } elseif ($type === 'pdf') {
+            if (isset($_FILES['pdf']) && $_FILES['pdf']['error'] === UPLOAD_ERR_OK) {
+                $pdf = basename($_FILES['pdf']['name']);
+                $pdfTargetFilePath = $targetDir . $pdf;
+                move_uploaded_file($_FILES['pdf']['tmp_name'], $pdfTargetFilePath);
+                $course = new ContentCourse(null, $title, $description, $targetFilePath, $idCategory, $idUser, null, $pdfTargetFilePath);
+            } else {
+                throw new Exception("PDF upload failed.");
+            }
+        } else {
+            throw new Exception("Invalid course type.");
+        }
+
+        $course->newCourse();
+        // echo 'Course added successfully.';
+        header("Location: ../Front/teacher/addingCourse.php?=CourseAddedSuccessfully");
+    } catch (Exception $e) {
+        echo $e->getMessage();
+    }
+} else {
+    echo 'Invalid request method.';
 }
-?>
+?><a href="../Front/teacher/addingCourse.php"></a>

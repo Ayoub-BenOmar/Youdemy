@@ -25,3 +25,4 @@ class VideoCourse extends Course {
         }
     }
 }
+?>
