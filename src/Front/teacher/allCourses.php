@@ -5,13 +5,14 @@ require_once "../../Classes/category.php";
 require_once "../../Classes/course.php";
 
 $role = $_SESSION['user_role'];
+$user_id = $_SESSION['user_id'];
 if ($role !== 2) {
     header("Location: ../loginPage.php");
     exit();
 }
 
 $db = Database::getInstance()->getConnection();
-$courses = Course::getAllCourses();
+$courses = Course::getCoursesByUserId($user_id);
 ?>
 
 <!DOCTYPE html>
@@ -77,18 +78,40 @@ $courses = Course::getAllCourses();
             <div class="grid grid-cols-3 gap-6">
                 <?php foreach ($courses as $course): ?>
                     <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                    <?php if ($course['image']): ?>
-                        <img src="../<?= htmlspecialchars($course['image']) ?>" alt="<?= htmlspecialchars($course['title']) ?>" class="w-full h-48 object-cover">
-                    <?php else: ?>
-                        <div class="w-full h-48 bg-gray-200 flex items-center justify-center">
-                            <span class="text-gray-500">No Image</span>
-                        </div>
-                    <?php endif; ?>
-                        <div class="p-4">
-                            <h2 class="text-xl font-bold text-purple-700 mb-2"><?= htmlspecialchars($course['title']) ?></h2>
-                            <p class="text-gray-700 mb-4"><?= htmlspecialchars($course['description']) ?></p>
-                            <p class="text-gray-500 text-sm mb-2">Created on: <?= htmlspecialchars(date('F j, Y', strtotime($course['created_at']))) ?></p>
-                            <p class="text-gray-500 text-sm">Category: <?= htmlspecialchars(Category::getNameById($course['idCategory'])) ?></p>
+                        <?php if ($course['image']): ?>
+                            <img src="../<?= htmlspecialchars($course['image']) ?>" alt="<?= htmlspecialchars($course['title']) ?>" class="w-full h-48 object-cover">
+                        <?php else: ?>
+                            <div class="w-full h-48 bg-gray-200 flex items-center justify-center">
+                                <span class="text-gray-500">No Image</span>
+                            </div>
+                        <?php endif; ?>
+                        <div class="p-4 flex">
+                            <div class="flex-1">
+                                <h2 class="text-xl font-bold text-purple-700 mb-2"><?= htmlspecialchars($course['title']) ?></h2>
+                                <p class="text-gray-700 mb-4"><?= htmlspecialchars($course['description']) ?></p>
+                                <p class="text-gray-500 text-sm mb-2">Created on: <?= htmlspecialchars(date('F j, Y', strtotime($course['created_at']))) ?></p>
+                                <p class="text-gray-500 text-sm">Category: <?= htmlspecialchars(Category::getNameById($course['idCategory'])) ?></p>
+                            </div>
+                            <div class="flex flex-col space-y-2">
+                                <!-- Modify Button -->
+                                <a href="modifyCourse.php?id=<?= $course['idCourse'] ?>" class="text-blue-500 hover:text-blue-700">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-2.036a2.5 2.5 0 113.536 3.536l-9 9a2 2 0 01-.878.515l-5 1a2 2 0 01-2.515-2.515l1-5a2 2 0 01.515-.878l9-9z" />
+                                    </svg>
+                                </a>
+                                <!-- Delete Button -->
+                                <a href="../../Handlers/deleteCourse.php?id=<?= $course['idCourse'] ?>" class="text-red-500 hover:text-red-700">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                                    </svg>
+                                </a>
+                                <!-- View Students Button -->
+                                <a href="viewStudents.php?course_id=<?= $course['idCourse'] ?>" class="text-green-500 hover:text-green-700">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A4 4 0 014 16.465V5a2 2 0 012-2h12a2 2 0 012 2v11.465a4 4 0 01-1.121 1.339M16 13V7m-4 6V7m-4 6V7m8 10H8a4 4 0 01-4-4v-4" />
+                                    </svg>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 <?php endforeach; ?>

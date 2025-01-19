@@ -3,6 +3,7 @@ session_start();
 require_once "../../Classes/category.php";
 require_once "../../Classes/database.php";
 $role = $_SESSION['user_role'];
+$user = $_SESSION['user_id'];
 if ($role !== 2) {
     header("Location: ../loginPage.php");
     exit();

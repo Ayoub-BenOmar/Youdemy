@@ -1,6 +1,7 @@
 <?php
 session_start();
 $role = $_SESSION['user_role'];
+$user = $_SESSION['user_id'];
 // var_dump($role);
 if ($role !== 2) {
     header("Location: ../loginPage.php");
