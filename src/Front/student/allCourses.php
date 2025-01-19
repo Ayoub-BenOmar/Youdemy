@@ -4,11 +4,11 @@ require_once "../../Classes/database.php";
 require_once "../../Classes/category.php";
 require_once "../../Classes/course.php";
 
-$role = $_SESSION['user_role'];
-if ($role !== 1) {
-    header("Location: ../loginPage.php");
-    exit();
-}
+// $role = $_SESSION['user_role'];
+// if ($role !== 1) {
+//     header("Location: ../loginPage.php");
+//     exit();
+// }
 
 $db = Database::getInstance()->getConnection();
 $courses = Course::getAllCourses();
@@ -18,22 +18,10 @@ $courses = Course::getAllCourses();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard</title>
+    <title>All Courses - Youdemy</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <style>
-        body {
-            padding-top: 64px; /* Adjust based on the height of the navbar */
-        }
-        .sidebar {
-            width: 16rem; /* Adjust width as needed */
-            top: 64px; /* Adjust top based on the height of the navbar */
-        }
-        .main-content {
-            min-height: calc(100vh - 64px); /* Full height minus navbar height */
-        }
-    </style>
 </head>
-<body class="bg-gray-100 flex flex-col">
+<body class="bg-gray-100">
 
     <!-- Navbar -->
     <nav class="bg-purple-700 p-4  w-full fixed top-0 z-20">
@@ -48,61 +36,60 @@ $courses = Course::getAllCourses();
         </div>
     </nav>
 
-    <!-- Main Content -->
-    <div class="flex flex-1">
-        <!-- Sidebar -->
-        <div class="sidebar bg-purple-700 min-h-screen p-4 fixed top-16 left-0 z-10">
-            <ul class="text-white">
-                <li class="mb-4">
-                    <a href="adminCash.php" class="block py-2 px-4 rounded hover:bg-purple-800">Dashboard</a>
-                </li>
-                <li class="mb-4">
-                    <a href="adminCourse.php" class="block py-2 px-4 rounded hover:bg-purple-800">Courses</a>
-                </li>
-                <li class="mb-4">
-                    <a href="#" class="block py-2 px-4 rounded hover:bg-purple-800">Teachers</a>
-                </li>
-                <li class="mb-4">
-                    <a href="#" class="block py-2 px-4 rounded hover:bg-purple-800">Students</a>
-                </li>
-                <li class="mb-4">
-                    <a href="#" class="block py-2 px-4 rounded hover:bg-purple-800">Statistics</a>
-                </li>
-                <li class="mb-4">
-                    <a href="adminTag_Cat.php" class="block py-2 px-4 rounded hover:bg-purple-800">Categories & Tags</a>
-                </li>
-                <li class="mb-4">
-                    <a href="../../Handlers/logout.php" class="block py-2 px-4 rounded hover:bg-purple-800">Logout</a>
-                </li>
-            </ul>
+    <!-- Search Bar Section -->
+    <section class="bg-white py-6">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-4xl font-bold text-purple-700 mb-4">Find Your Course</h1>
+            <form action="" method="GET" class="flex justify-center">
+                <input type="text" name="search" placeholder="Search for courses" class="w-1/2 px-4 py-2 border border-gray-300 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-purple-700 focus:border-transparent">
+                <button type="submit" class="px-4 py-2 bg-purple-700 text-white rounded-r-lg hover:bg-purple-800 transition">Search</button>
+            </form>
         </div>
+    </section>
 
-                <!-- Main Section -->
-                <div class="main-content flex-1 p-6 ml-64 flex flex-col">
-                    <h1 class="text-3xl font-bold text-purple-700 mb-6">All Courses</h1>
-                    <div class="grid grid-cols-3 gap-6">
-                        <?php foreach ($courses as $course): ?>
-                            <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                            <?php if ($course['image']): ?>
-                                <img src="../<?= htmlspecialchars($course['image']) ?>" alt="<?= htmlspecialchars($course['title']) ?>" class="w-full h-48 object-cover">
-                            <?php else: ?>
-                                <div class="w-full h-48 bg-gray-200 flex items-center justify-center">
-                                    <span class="text-gray-500">No Image</span>
-                                </div>
-                            <?php endif; ?>
-                                <div class="p-4">
-                                    <h2 class="text-xl font-bold text-purple-700 mb-2"><?= htmlspecialchars($course['title']) ?></h2>
-                                    <p class="text-gray-700 mb-4"><?= htmlspecialchars($course['description']) ?></p>
-                                    <p class="text-gray-500 text-sm mb-2">Created on: <?= htmlspecialchars(date('F j, Y', strtotime($course['created_at']))) ?></p>
-                                    <p class="text-gray-500 text-sm">Category: <?= htmlspecialchars(Category::getNameById($course['idCategory'])) ?></p>
-                                </div>
+<!-- Courses Section -->
+<section class="container mx-auto px-6 py-16">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <?php foreach ($courses as $course): ?>
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                        <?php if ($course['image']): ?>
+                            <img src="../<?= htmlspecialchars($course['image']) ?>" alt="<?= htmlspecialchars($course['title']) ?>" class="w-full h-48 object-cover">
+                        <?php else: ?>
+                            <div class="w-full h-48 bg-gray-200 flex items-center justify-center">
+                                <span class="text-gray-500">No Image</span>
                             </div>
-                        <?php endforeach; ?>
+                        <?php endif; ?>                    
+                    <div class="p-4">
+                        <h2 class="text-xl font-bold text-purple-700 mb-2"><?= htmlspecialchars($course['title']) ?></h2>
+                        <p class="text-gray-700 mb-2">By <?= htmlspecialchars($course['name']) ?></p>
+                        <div class="flex items-center">
+                            <?php 
+                            $rating = 4.7;
+                            for ($i = 0; $i < 5; $i++): ?>
+                                <?php if ($i < floor($rating)): ?>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-500" viewBox="0 0 20 20" fill="currentColor">
+                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.97a1 1 0 00.95.69h4.18c.969 0 1.371 1.24.588 1.81l-3.392 2.456a1 1 0 00-.364 1.118l1.286 3.97c.3.921-.755 1.688-1.54 1.118l-3.392-2.456a1 1 0 00-1.176 0l-3.392 2.456c-.785.57-1.84-.197-1.54-1.118l1.286-3.97a1 1 0 00-.364-1.118L2.633 9.396c-.784-.57-.38-1.81.588-1.81h4.18a1 1 0 00.95-.69l1.286-3.97z" />
+                                    </svg>
+                                <?php elseif ($i < ceil($rating)): ?>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-500" viewBox="0 0 20 20" fill="currentColor">
+                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.97a1 1 0 00.95.69h4.18c.969 0 1.371 1.24.588 1.81l-3.392 2.456a1 1 0 00-.364 1.118l1.286 3.97c.3.921-.755 1.688-1.54 1.118l-3.392-2.456a1 1 0 00-1.176 0l-3.392 2.456c-.785.57-1.84-.197-1.54-1.118l1.286-3.97a1 1 0 00-.364-1.118L2.633 9.396c-.784-.57-.38-1.81.588-1.81h4.18a1 1 0 00.95-.69l1.286-3.97z" />
+                                    </svg>
+                                <?php else: ?>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-300" viewBox="0 0 20 20" fill="currentColor">
+                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.97a1 1 0 00.95.69h4.18c.969 0 1.371 1.24.588 1.81l-3.392 2.456a1 1 0 00-.364 1.118l1.286 3.97c.3.921-.755 1.688-1.54 1.118l-3.392-2.456a1 1 0 00-1.176 0l-3.392 2.456c-.785.57-1.84-.197-1.54-1.118l1.286-3.97a1 1 0 00-.364-1.118L2.633 9.396c-.784-.57-.38-1.81.588-1.81h4.18a1 1 0 00.95-.69l1.286-3.97z" />
+                                    </svg>
+                                <?php endif; ?>
+                            <?php endfor; ?>
+                            <span class="text-gray-600 ml-2"><?= $rating ?>/5</span>
+                        </div>
                     </div>
                 </div>
-    </div>
+            <?php endforeach; ?>
+        </div>
+    </section>
 
-    <!-- Footer -->
+
+    
     <footer class="bg-purple-700 p-4 mt-8">
         <div class="max-w-screen-xl px-4 py-12 mx-auto space-y-8 overflow-hidden sm:px-6 lg:px-8">
             <nav class="flex flex-wrap justify-center -mx-5 -my-2">
@@ -174,6 +161,5 @@ $courses = Course::getAllCourses();
             </p>
         </div>
     </footer>
-
 </body>
 </html>

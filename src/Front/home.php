@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,7 +27,7 @@
         <div class="container mx-auto px-6 py-16 text-center">
             <h1 class="text-5xl font-bold mb-4">Welcome to Youdemy</h1>
             <p class="text-xl mb-8">Empowering you with the knowledge to succeed</p>
-            <a href="#" class="bg-white text-purple-700 px-6 py-2 rounded-full text-lg font-semibold hover:bg-gray-100 transition">Get Started</a>
+            <a href="student/allCourses.php" class="bg-white text-purple-700 px-6 py-2 rounded-full text-lg font-semibold hover:bg-gray-100 transition">Get Started</a>
         </div>
     </section>
 
@@ -106,7 +107,7 @@
                     </div>
                 </div>
             </div>
-            <a href="#" class="bg-white text-purple-700 px-6 py-2 rounded-full text-lg font-semibold hover:bg-gray-100 transition">Join Us Today</a>
+            <a href="student/allCourses.php" class="bg-white text-purple-700 px-6 py-2 rounded-full text-lg font-semibold hover:bg-gray-100 transition">Join Us Today</a>
         </div>
     </section>
 
