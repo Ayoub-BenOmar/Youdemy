@@ -43,9 +43,6 @@ $courses = Course::getCoursesByUserId($user_id);
                 <img src="../../Pics/logo_youdemy.png" alt="Youdemy Logo" class="h-10 w-10 mr-2">
                 Youdemy
             </a>
-            <div>
-                <a href="#" class="text-white px-4 py-2 border border-white rounded hover:bg-white hover:text-purple-700 transition">Courses</a>
-            </div>
         </div>
     </nav>
 

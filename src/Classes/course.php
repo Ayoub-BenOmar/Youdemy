@@ -24,9 +24,15 @@ abstract class Course {
     public static function getAllCourses() {
         $db = Database::getInstance()->getConnection();
         try {
-            $stmt = $db->prepare("SELECT * FROM courses");
+        // Assuming there is a foreign key `idUser` in `courses` that references `idUser` in `users`
+            $stmt = $db->prepare("SELECT courses.*, users.name FROM courses JOIN users ON courses.idUser = users.idUser");
             $stmt->execute();
             $courses = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+            if (!$courses) {
+                error_log("No courses found in the database.");
+                throw new Exception("No courses found.");
+            }
 
             return $courses;
         } catch (PDOException $e) {

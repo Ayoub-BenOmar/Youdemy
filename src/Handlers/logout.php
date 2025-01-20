@@ -8,7 +8,7 @@ if ($userId) {
     $user = new user("", "", "");
     $user->logout();
 } else {
-    header("Location: ../Front/logingPage.php");
+    header("Location: ../Front/loginPage.php");
     exit();
 }
 ?>

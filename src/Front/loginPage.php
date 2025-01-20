@@ -15,7 +15,7 @@
                 Youdemy
             </a>
             <div>
-                <a href="#" class="text-white px-4 py-2 border border-white rounded hover:bg-white hover:text-purple-700 transition">Courses</a>
+                <a href="home.php" class="text-white px-4 py-2 border border-white rounded hover:bg-white hover:text-purple-700 transition">Home</a>
             </div>
         </div>
     </nav>

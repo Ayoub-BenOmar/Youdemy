@@ -12,6 +12,8 @@ require_once "../../Classes/course.php";
 
 $db = Database::getInstance()->getConnection();
 $courses = Course::getAllCourses();
+
+// var_dump($courses);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,14 +26,18 @@ $courses = Course::getAllCourses();
 <body class="bg-gray-100">
 
     <!-- Navbar -->
-    <nav class="bg-purple-700 p-4  w-full fixed top-0 z-20">
+    <!-- Navbar -->
+    <nav class="bg-purple-700 p-4 w-full fixed top-0 z-20">
         <div class="container mx-auto flex justify-between items-center">
             <a href="#" class="flex items-center text-white text-3xl font-bold">
                 <img src="../../Pics/logo_youdemy.png" alt="Youdemy Logo" class="h-10 w-10 mr-2">
                 Youdemy
             </a>
-            <div>
-                <a href="#" class="text-white px-4 py-2 border border-white rounded hover:bg-white hover:text-purple-700 transition">Courses</a>
+            <div class="flex space-x-4">
+                <a href="../home.php" class="text-white px-4 py-2 border border-white rounded hover:bg-white hover:text-purple-700 transition">Home</a>
+                <a href="allCourses.php" class="text-white px-4 py-2 border border-white rounded hover:bg-white hover:text-purple-700 transition">Courses</a>
+                <a href="#" class="text-white px-4 py-2 border border-white rounded hover:bg-white hover:text-purple-700 transition">My Courses</a>
+                <a href="../../Handlers/logout.php" class="text-white px-4 py-2 border border-white rounded hover:bg-white hover:text-purple-700 transition">Logout</a>
             </div>
         </div>
     </nav>
@@ -40,15 +46,34 @@ $courses = Course::getAllCourses();
     <section class="bg-white py-6">
         <div class="container mx-auto px-6 text-center">
             <h1 class="text-4xl font-bold text-purple-700 mb-4">Find Your Course</h1>
-            <form action="" method="GET" class="flex justify-center">
+            <form action="" method="GET" class="flex justify-center pt-4">
                 <input type="text" name="search" placeholder="Search for courses" class="w-1/2 px-4 py-2 border border-gray-300 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-purple-700 focus:border-transparent">
                 <button type="submit" class="px-4 py-2 bg-purple-700 text-white rounded-r-lg hover:bg-purple-800 transition">Search</button>
             </form>
         </div>
     </section>
 
-<!-- Courses Section -->
-<section class="container mx-auto px-6 py-16">
+    <!-- Introductory Section -->
+    <section class="bg-purple-700 text-white py-16 m-6 rounded-lg">
+        <div class="container mx-auto px-6 flex flex-wrap items-center">
+            <div class="w-full md:w-1/2 mb-8 md:mb-0">
+                <img src="../../Pics/computer.jpg" alt="Decorative Image" class="w-full rounded-lg shadow-lg object-cover h-64">
+            </div>
+            <div class="w-full md:w-1/2 text-center md:text-left pl-6">
+                <h1 class="text-5xl font-bold mb-4">Explore Our Courses</h1>
+                <p class="text-xl mb-8">Unlock new skills and knowledge with our wide range of courses taught by industry experts.</p>
+                <div class="flex flex-wrap justify-center md:justify-start space-x-4">
+                    <img src="path/to/sponsor1-logo.png" alt="Sponsor 1" class="h-16">
+                    <img src="path/to/sponsor2-logo.png" alt="Sponsor 2" class="h-16">
+                    <img src="path/to/sponsor3-logo.png" alt="Sponsor 3" class="h-16">
+                    <!-- Add more sponsor logos as needed -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section class="container mx-auto px-6 py-16">
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             <?php foreach ($courses as $course): ?>
                 <div class="bg-white rounded-lg shadow-md overflow-hidden">
@@ -88,8 +113,6 @@ $courses = Course::getAllCourses();
         </div>
     </section>
 
-
-    
     <footer class="bg-purple-700 p-4 mt-8">
         <div class="max-w-screen-xl px-4 py-12 mx-auto space-y-8 overflow-hidden sm:px-6 lg:px-8">
             <nav class="flex flex-wrap justify-center -mx-5 -my-2">

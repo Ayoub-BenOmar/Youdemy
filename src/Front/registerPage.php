@@ -15,7 +15,7 @@
                 Youdemy
             </a>
             <div>
-                <a href="#" class="text-white px-4 py-2 border border-white rounded hover:bg-white hover:text-purple-700 transition">Courses</a>
+                <a href="../home.php" class="text-white px-4 py-2 border border-white rounded hover:bg-white hover:text-purple-700 transition">Home</a>
             </div>
         </div>
     </nav>
@@ -28,7 +28,7 @@
             <form action="../Handlers/register.php" method="post">
                 <div class="mb-4">
                     <label for="nom" class="block text-purple-700">Name</label>
-                    <input type="text" id="nom" name="nom" class="mt-1 px-4 py-2 border rounded-lg w-full" required>
+                    <input type="text" id="nom" name="name" class="mt-1 px-4 py-2 border rounded-lg w-full" required>
                 </div>
 
                 <div class="mb-4">
