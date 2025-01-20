@@ -20,32 +20,59 @@
         </div>
     </nav>
 
-    <div class="min-h-screen flex items-center justify-center">
-        <div class="bg-purple-100 rounded-lg shadow-lg p-8 w-full max-w-md">
+    <div class="min-h-screen flex items-center justify-center bg-gradient-to-br from-purple-50 to-purple-100 mt-16">
+        <div class="bg-white rounded-xl shadow-xl p-8 w-full max-w-md border border-purple-100">
+            <div class="flex justify-center mb-6">
+                <div class="bg-purple-100 p-3 rounded-full">
+                    <i data-feather="user" class="w-8 h-8 text-purple-700"></i>
+                </div>
+            </div>
 
-            <h2 class="text-2xl font-bold text-purple-700 text-center mb-6">Login to Your Account</h2>
+            <h2 class="text-2xl font-bold text-purple-700 text-center mb-8">Login to Your Account</h2>
 
-            <form action="../Handlers/login.php" method="post">
-                <div class="mb-4">
-                    <label for="email" class="block text-purple-700">Email</label>
-                    <input type="email" id="email" name="email" class="mt-1 px-4 py-2 border rounded-lg w-full" required>
+            <form action="../Handlers/login.php" method="post" class="space-y-6">
+                <div class="relative">
+                    <label for="email" class="block text-sm font-medium text-purple-700 mb-2">Email Address</label>
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <i data-feather="mail" class="h-5 w-5 text-purple-400"></i>
+                        </div>
+                        <input type="email" id="email" name="email" 
+                            class=" w-full px-4 py-2 bg-purple-50 border border-purple-200 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition duration-200 outline-none"
+                            required 
+                            placeholder="Enter your email">
+                    </div>
                 </div>
 
-                <div class="mb-4">
-                    <label for="password" class="block text-purple-700">Password</label>
-                    <input type="password" id="password" name="password" class="mt-1 px-4 py-2 border rounded-lg w-full" required>
+                <div class="relative">
+                    <label for="password" class="block text-sm font-medium text-purple-700 mb-2">Password</label>
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <i data-feather="lock" class="h-5 w-5 text-purple-400"></i>
+                        </div>
+                        <input type="password" id="password" name="password" 
+                            class=" w-full px-4 py-2 bg-purple-50 border border-purple-200 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition duration-200 outline-none"
+                            required
+                            placeholder="Enter your password">
+                    </div>
                 </div>
 
-                <div class="flex justify-between items-center">
-                    <button type="submit" class="bg-purple-700 text-white px-4 py-2 rounded-lg hover:bg-purple-800">Login</button>
-                    <a href="registerPage.php" class="text-purple-700 hover:underline">Create an account</a>
+                <div class="flex flex-col sm:flex-row justify-between items-center gap-4">
+                    <button type="submit" 
+                        class="w-full sm:w-auto bg-purple-600 text-white px-6 py-2 rounded-lg hover:bg-purple-700 active:bg-purple-800 transition duration-150 ease-in-out shadow-md hover:shadow-lg">
+                        Login
+                    </button>
+                    <a href="registerPage.php" 
+                        class="text-purple-600 hover:text-purple-800 font-medium transition duration-150 ease-in-out">
+                        Create an account
+                    </a>
                 </div>
             </form>
         </div>
     </div>
 
     <!-- Footer -->
-    <footer class="relative bg-purple-700 text-white mt-20">
+    <footer class="relative bg-purple-700 text-white">
         <!-- Curved decoration -->
         <!-- <div class="absolute top-0 left-0 w-full transform -translate-y-full">
             <svg class="w-full h-24" viewBox="0 0 1440 74" preserveAspectRatio="none">

@@ -169,7 +169,7 @@
 
     
     <!-- Footer with curved top edge -->
-    <footer class="relative bg-purple-700 text-white mt-20">
+    <footer class="relative bg-purple-700 text-white mt-4">
         <!-- Curved decoration -->
         <!-- <div class="absolute top-0 left-0 w-full transform -translate-y-full">
             <svg class="w-full h-24" viewBox="0 0 1440 74" preserveAspectRatio="none">

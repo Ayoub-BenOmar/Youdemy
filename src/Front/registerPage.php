@@ -20,45 +20,90 @@
         </div>
     </nav>
 
-    <div class="min-h-screen flex items-center justify-center">
-        <div class="bg-purple-100 rounded-lg shadow-lg p-8 w-full max-w-md">
+    <div class="min-h-screen flex items-center justify-center bg-gradient-to-br from-purple-50 to-purple-100 mt-16">
+        <div class="bg-white rounded-xl shadow-xl p-8 w-full max-w-md border border-purple-100">
+            <div class="flex justify-center mb-6">
+                <div class="bg-purple-100 p-3 rounded-full">
+                    <i data-feather="user-plus" class="w-8 h-8 text-purple-700"></i>
+                </div>
+            </div>
 
-            <h2 class="text-2xl font-bold text-purple-700 text-center mb-6">Create an Account</h2>
+            <h2 class="text-2xl font-bold text-purple-700 text-center mb-8">Create an Account</h2>
 
-            <form action="../Handlers/register.php" method="post">
-                <div class="mb-4">
-                    <label for="nom" class="block text-purple-700">Name</label>
-                    <input type="text" id="nom" name="name" class="mt-1 px-4 py-2 border rounded-lg w-full" required>
+            <form action="../Handlers/register.php" method="post" class="space-y-6">
+                <div class="relative">
+                    <label for="nom" class="block text-sm font-medium text-purple-700 mb-2">Name</label>
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <i data-feather="user" class="h-5 w-5 text-purple-400"></i>
+                        </div>
+                        <input type="text" id="nom" name="name" 
+                            class=" w-full px-4 py-2 bg-purple-50 border border-purple-200 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition duration-200 outline-none"
+                            required 
+                            placeholder="Enter your full name">
+                    </div>
                 </div>
 
-                <div class="mb-4">
-                    <label for="email" class="block text-purple-700">Email</label>
-                    <input type="email" id="email" name="email" class="mt-1 px-4 py-2 border rounded-lg w-full" required>
+                <div class="relative">
+                    <label for="email" class="block text-sm font-medium text-purple-700 mb-2">Email Address</label>
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <i data-feather="mail" class="h-5 w-5 text-purple-400"></i>
+                        </div>
+                        <input type="email" id="email" name="email" 
+                            class=" w-full px-4 py-2 bg-purple-50 border border-purple-200 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition duration-200 outline-none"
+                            required 
+                            placeholder="Enter your email">
+                    </div>
                 </div>
 
-                <div class="mb-4">
-                    <label for="password" class="block text-purple-700">Password</label>
-                    <input type="password" id="password" name="password" class="mt-1 px-4 py-2 border rounded-lg w-full" required>
+                <div class="relative">
+                    <label for="password" class="block text-sm font-medium text-purple-700 mb-2">Password</label>
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <i data-feather="lock" class="h-5 w-5 text-purple-400"></i>
+                        </div>
+                        <input type="password" id="password" name="password" 
+                            class=" w-full px-4 py-2 bg-purple-50 border border-purple-200 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition duration-200 outline-none"
+                            required
+                            placeholder="Choose a password">
+                    </div>
                 </div>
 
-                <div class="mb-4">
-                    <label for="role" class="block text-purple-700">Role</label>
-                    <select id="role" name="idRole" class="mt-1 px-4 py-2 border rounded-lg w-full" required>
-                        <option value="3">Student</option>
-                        <option value="2">Teacher</option>
-                    </select>
+                <div class="relative">
+                    <label for="role" class="block text-sm font-medium text-purple-700 mb-2">Role</label>
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <i data-feather="shield" class="h-5 w-5 text-purple-400"></i>
+                        </div>
+                        <select id="role" name="idRole" 
+                            class=" w-full px-4 py-2 bg-purple-50 border border-purple-200 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition duration-200 outline-none appearance-none"
+                            required>
+                            <option value="3">Student</option>
+                            <option value="2">Teacher</option>
+                        </select>
+                        <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                            <i data-feather="chevron-down" class="h-5 w-5 text-purple-400"></i>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="flex justify-between items-center">
-                    <button type="submit" class="bg-purple-700 text-white px-4 py-2 rounded-lg hover:bg-purple-800">Register</button>
-                    <a href="loginPage.php" class="text-purple-700 hover:underline">Already have an account?</a>
+                <div class="flex flex-col sm:flex-row justify-between items-center gap-4">
+                    <button type="submit" 
+                        class="w-full sm:w-auto bg-purple-600 text-white px-6 py-2 rounded-lg hover:bg-purple-700 active:bg-purple-800 transition duration-150 ease-in-out shadow-md hover:shadow-lg">
+                        Register
+                    </button>
+                    <a href="loginPage.php" 
+                        class="text-purple-600 hover:text-purple-800 font-medium transition duration-150 ease-in-out">
+                        Already have an account?
+                    </a>
                 </div>
             </form>
         </div>
     </div>
 
     <!-- Footer -->
-    <footer class="relative bg-purple-700 text-white mt-20">
+    <footer class="relative bg-purple-700 text-white">
         <!-- Curved decoration -->
         <!-- <div class="absolute top-0 left-0 w-full transform -translate-y-full">
             <svg class="w-full h-24" viewBox="0 0 1440 74" preserveAspectRatio="none">
