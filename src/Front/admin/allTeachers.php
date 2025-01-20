@@ -1,120 +1,136 @@
 <?php
 session_start();
+$role = $_SESSION['user_role'];
+// var_dump($role);
+if ($role !== 1) {
+    header("Location: ../loginPage.php");
+    exit();
+}
 require_once "../../Classes/database.php";
-require_once "../../Classes/category.php";
-require_once "../../Classes/course.php";
-
-// $role = $_SESSION['user_role'];
-// if ($role !== 1) {
-//     header("Location: ../loginPage.php");
-//     exit();
-// }
-
-$db = Database::getInstance()->getConnection();
-$courses = Course::getAllCourses();
-
-// var_dump($courses);
+// Fetch all teachers
+try {
+    $db = Database::getInstance()->getConnection();
+    $stmt = $db->prepare("SELECT idUser, name, email, status FROM users WHERE idRole = 2"); // Assuming role 2 is for teachers
+    $stmt->execute();
+    $teachers = $stmt->fetchAll(PDO::FETCH_ASSOC);
+} catch (PDOException $e) {
+    error_log("Database error: " . $e->getMessage());
+    $teachers = [];
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>All Courses - Youdemy</title>
+    <title>Admin Dashboard</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            padding-top: 64px; /* Adjust based on the height of the navbar */
+        }
+        .sidebar {
+            width: 16rem; /* Adjust width as needed */
+            top: 64px; /* Adjust top based on the height of the navbar */
+        }
+        .main-content {
+            min-height: calc(100vh - 64px); /* Full height minus navbar height */
+        }
+    </style>
 </head>
-<body class="bg-gray-100">
+<body class="bg-gray-100 flex flex-col">
 
     <!-- Navbar -->
-    <!-- Navbar -->
-    <nav class="bg-purple-700 p-4 w-full fixed top-0 z-20">
+    <nav class="bg-purple-700 p-4  w-full fixed top-0 z-20">
         <div class="container mx-auto flex justify-between items-center">
             <a href="#" class="flex items-center text-white text-3xl font-bold">
                 <img src="../../Pics/logo_youdemy.png" alt="Youdemy Logo" class="h-10 w-10 mr-2">
                 Youdemy
             </a>
-            <div class="flex space-x-4">
-                <a href="../home.php" class="text-white px-4 py-2 border border-white rounded hover:bg-white hover:text-purple-700 transition">Home</a>
-                <a href="allCourses.php" class="text-white px-4 py-2 border border-white rounded hover:bg-white hover:text-purple-700 transition">Courses</a>
-                <a href="#" class="text-white px-4 py-2 border border-white rounded hover:bg-white hover:text-purple-700 transition">My Courses</a>
-                <a href="../../Handlers/logout.php" class="text-white px-4 py-2 border border-white rounded hover:bg-white hover:text-purple-700 transition">Logout</a>
-            </div>
         </div>
     </nav>
 
-    <!-- Search Bar Section -->
-    <section class="bg-white py-6">
-        <div class="container mx-auto px-6 text-center">
-            <h1 class="text-4xl font-bold text-purple-700 mb-4">Find Your Course</h1>
-            <form action="" method="GET" class="flex justify-center pt-4">
-                <input type="text" name="search" placeholder="Search for courses" class="w-1/2 px-4 py-2 border border-gray-300 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-purple-700 focus:border-transparent">
-                <button type="submit" class="px-4 py-2 bg-purple-700 text-white rounded-r-lg hover:bg-purple-800 transition">Search</button>
-            </form>
+<!-- Main Content -->
+    <div class="flex flex-1">
+        <!-- Sidebar -->
+        <div class="sidebar bg-purple-700 min-h-screen p-4 fixed top-16 left-0 z-10">
+            <ul class="text-white">
+                <li class="mb-4">
+                    <a href="adminDash.php" class="block py-2 px-4 rounded hover:bg-purple-800">Dashboard</a>
+                </li>
+                <li class="mb-4">
+                    <a href="adminCourse.php" class="block py-2 px-4 rounded hover:bg-purple-800">Courses</a>
+                </li>
+                <li class="mb-4">
+                    <a href="allTeachers.php" class="block py-2 px-4 rounded hover:bg-purple-800">Teachers</a>
+                </li>
+                <li class="mb-4">
+                    <a href="#" class="block py-2 px-4 rounded hover:bg-purple-800">Students</a>
+                </li>
+                <li class="mb-4">
+                    <a href="#" class="block py-2 px-4 rounded hover:bg-purple-800">Statistics</a>
+                </li>
+                <li class="mb-4">
+                    <a href="adminTag_Cat.php" class="block py-2 px-4 rounded hover:bg-purple-800">Categories & Tags</a>
+                </li>
+                <li class="mb-4">
+                    <a href="../../Handlers/logout.php" class="block py-2 px-4 rounded hover:bg-purple-800">Logout</a>
+                </li>
+            </ul>
         </div>
-    </section>
 
-    <!-- Introductory Section -->
-    <section class="bg-purple-700 text-white py-16 m-6 rounded-lg">
-        <div class="container mx-auto px-6 flex flex-wrap items-center">
-            <div class="w-full md:w-1/2 mb-8 md:mb-0">
-                <img src="../../Pics/computer.jpg" alt="Decorative Image" class="w-full rounded-lg shadow-lg object-cover h-64">
+        <!-- Main Section -->
+        <div class="main-content flex-1 p-6 ml-64 flex flex-col">
+            <h1 class="text-3xl font-bold text-purple-700 mb-6">Admin Dashboard</h1>
+
+            <!-- Teachers Table -->
+            <div class="overflow-x-auto">
+                <table class="min-w-full bg-white rounded-lg shadow-lg overflow-hidden">
+                    <thead>
+                        <tr class="bg-gradient-to-r from-purple-600 to-purple-800 text-white">
+                            <th class="py-4 px-6 text-left font-semibold text-sm uppercase tracking-wider">Name</th>
+                            <th class="py-4 px-6 text-left font-semibold text-sm uppercase tracking-wider">Email</th>
+                            <th class="py-4 px-6 text-left font-semibold text-sm uppercase tracking-wider">Status</th>
+                            <th class="py-4 px-6 text-left font-semibold text-sm uppercase tracking-wider">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200">
+                        <?php foreach ($teachers as $teacher): ?>
+                            <tr class="hover:bg-purple-50 transition-colors duration-200">
+                                <td class="py-4 px-6 text-gray-700"><?= htmlspecialchars($teacher['name']) ?></td>
+                                <td class="py-4 px-6 text-gray-700"><?= htmlspecialchars($teacher['email']) ?></td>
+                                <td class="py-4 px-6 text-gray-700"><?= htmlspecialchars($teacher['status']) ?></td>
+                                <td class="py-4 px-6">
+                                    <div class="flex space-x-3">
+                                        <form action="activateTeacher.php" method="post">
+                                            <input type="hidden" name="teacher_id" value="<?= htmlspecialchars($teacher['idUser']) ?>">
+                                            <button type="submit" class="border border-purple-600 text-purple-600 px-4 py-2 rounded-md transition-all duration-200 hover:bg-purple-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50">Activate</button>
+                                        </form>
+                                        <form action="suspendTeacher.php" method="post">
+                                            <input type="hidden" name="teacher_id" value="<?= htmlspecialchars($teacher['idUser']) ?>">
+                                            <button type="submit" class="bg-purple-600 text-white px-4 py-2 rounded-md transition-all duration-200 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50">Suspend</button>
+                                        </form>
+                                        <form action="deleteTeacher.php" method="post">
+                                            <input type="hidden" name="teacher_id" value="<?= htmlspecialchars($teacher['idUser']) ?>">
+                                            <button type="submit" class="text-purple-600 px-4 py-2 rounded-md transition-all duration-200 hover:text-red-600 hover:underline focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50">Delete</button>
+                                        </form>
+                                    </div>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
             </div>
-            <div class="w-full md:w-1/2 text-center md:text-left pl-6">
-                <h1 class="text-5xl font-bold mb-4">Explore Our Courses</h1>
-                <p class="text-xl mb-8">Unlock new skills and knowledge with our wide range of courses taught by industry experts.</p>
-                <div class="flex flex-wrap justify-center md:justify-start space-x-4">
-                    <img src="path/to/sponsor1-logo.png" alt="Sponsor 1" class="h-16">
-                    <img src="path/to/sponsor2-logo.png" alt="Sponsor 2" class="h-16">
-                    <img src="path/to/sponsor3-logo.png" alt="Sponsor 3" class="h-16">
-                    <!-- Add more sponsor logos as needed -->
-                </div>
-            </div>
-        </div>
-    </section>
+            <!-- End Teachers Table -->
 
-    <!-- Courses Section -->
-    <section class="container mx-auto px-6 py-16">
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            <?php foreach ($courses as $course): ?>
-                <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                    <a href="details.php?id=<?= htmlspecialchars($course['idCourse']) ?>">
-                        <?php if ($course['image']): ?>
-                            <img src="../<?= htmlspecialchars($course['image']) ?>" alt="<?= htmlspecialchars($course['title']) ?>" class="w-full h-48 object-cover">
-                        <?php else: ?>
-                            <div class="w-full h-48 bg-gray-200 flex items-center justify-center">
-                                <span class="text-gray-500">No Image</span>
-                            </div>
-                        <?php endif; ?>
-                    </a>                   
-                    <div class="p-4">
-                        <h2 class="text-xl font-bold text-purple-700 mb-2"><?= htmlspecialchars($course['title']) ?></h2>
-                        <p class="text-gray-700 mb-2">By <?= htmlspecialchars($course['name']) ?></p>
-                        <div class="flex items-center">
-                            <?php 
-                            $rating = 4.7;
-                            for ($i = 0; $i < 5; $i++): ?>
-                                <?php if ($i < floor($rating)): ?>
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-500" viewBox="0 0 20 20" fill="currentColor">
-                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.97a1 1 0 00.95.69h4.18c.969 0 1.371 1.24.588 1.81l-3.392 2.456a1 1 0 00-.364 1.118l1.286 3.97c.3.921-.755 1.688-1.54 1.118l-3.392-2.456a1 1 0 00-1.176 0l-3.392 2.456c-.785.57-1.84-.197-1.54-1.118l1.286-3.97a1 1 0 00-.364-1.118L2.633 9.396c-.784-.57-.38-1.81.588-1.81h4.18a1 1 0 00.95-.69l1.286-3.97z" />
-                                    </svg>
-                                <?php elseif ($i < ceil($rating)): ?>
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-500" viewBox="0 0 20 20" fill="currentColor">
-                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.97a1 1 0 00.95.69h4.18c.969 0 1.371 1.24.588 1.81l-3.392 2.456a1 1 0 00-.364 1.118l1.286 3.97c.3.921-.755 1.688-1.54 1.118l-3.392-2.456a1 1 0 00-1.176 0l-3.392 2.456c-.785.57-1.84-.197-1.54-1.118l1.286-3.97a1 1 0 00-.364-1.118L2.633 9.396c-.784-.57-.38-1.81.588-1.81h4.18a1 1 0 00.95-.69l1.286-3.97z" />
-                                    </svg>
-                                <?php else: ?>
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-300" viewBox="0 0 20 20" fill="currentColor">
-                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.97a1 1 0 00.95.69h4.18c.969 0 1.371 1.24.588 1.81l-3.392 2.456a1 1 0 00-.364 1.118l1.286 3.97c.3.921-.755 1.688-1.54 1.118l-3.392-2.456a1 1 0 00-1.176 0l-3.392 2.456c-.785.57-1.84-.197-1.54-1.118l1.286-3.97a1 1 0 00-.364-1.118L2.633 9.396c-.784-.57-.38-1.81.588-1.81h4.18a1 1 0 00.95-.69l1.286-3.97z" />
-                                    </svg>
-                                <?php endif; ?>
-                            <?php endfor; ?>
-                            <span class="text-gray-600 ml-2"><?= $rating ?>/5</span>
-                        </div>
-                    </div>
-                </div>
-            <?php endforeach; ?>
+            <!-- This div pushes the footer to the bottom when content is not enough -->
+            <div class="flex-grow"></div>
         </div>
-    </section>
+    </div>
 
+
+    <!-- Footer -->
     <footer class="bg-purple-700 p-4 mt-8">
         <div class="max-w-screen-xl px-4 py-12 mx-auto space-y-8 overflow-hidden sm:px-6 lg:px-8">
             <nav class="flex flex-wrap justify-center -mx-5 -my-2">
@@ -186,5 +202,6 @@ $courses = Course::getAllCourses();
             </p>
         </div>
     </footer>
+
 </body>
 </html>

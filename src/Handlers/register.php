@@ -18,9 +18,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     try {
         // Register the new user
         $userId = User::signup($name, $email, $password, $idRole);
-        echo "l7waaaaaaaaaaaa";
+        header('Location: ../Front/home.php');
     } catch (Exception $e) {
-        echo "tle3 lia hadchi f keri";
+        header('Location: ../Front/registerPage.php?=Error');
     }
 } else {
     echo "law3lem";

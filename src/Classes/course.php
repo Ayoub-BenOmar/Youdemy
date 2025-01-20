@@ -41,6 +41,26 @@ abstract class Course {
         }
     }
 
+    public static function getCourseById($idCourse) {
+        $db = Database::getInstance()->getConnection();
+        try {
+            $stmt = $db->prepare("SELECT courses.*, users.name FROM courses JOIN users ON courses.idUser = users.idUser WHERE courses.idCourse = :idCourse");
+            $stmt->bindParam(':idCourse', $idCourse, PDO::PARAM_INT);
+            $stmt->execute();
+            $course = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            if (!$course) {
+                error_log("Course not found with id: " . $idCourse);
+                throw new Exception("Course not found.");
+            }
+
+            return $course;
+        } catch (PDOException $e) {
+            error_log("Database error: " . $e->getMessage());
+            throw new Exception("An error occurred while retrieving the course.");
+        }
+    }
+
     public static function getCoursesByUserId($userId) {
         $db = Database::getInstance()->getConnection();
         try {

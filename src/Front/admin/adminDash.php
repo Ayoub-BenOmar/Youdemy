@@ -40,7 +40,7 @@ if ($role !== 1) {
         </div>
     </nav>
 
-    <!-- Main Content -->
+<!-- Main Content -->
     <div class="flex flex-1">
         <!-- Sidebar -->
         <div class="sidebar bg-purple-700 min-h-screen p-4 fixed top-16 left-0 z-10">
@@ -52,7 +52,7 @@ if ($role !== 1) {
                     <a href="adminCourse.php" class="block py-2 px-4 rounded hover:bg-purple-800">Courses</a>
                 </li>
                 <li class="mb-4">
-                    <a href="#" class="block py-2 px-4 rounded hover:bg-purple-800">Teachers</a>
+                    <a href="allTeachers.php" class="block py-2 px-4 rounded hover:bg-purple-800">Teachers</a>
                 </li>
                 <li class="mb-4">
                     <a href="#" class="block py-2 px-4 rounded hover:bg-purple-800">Students</a>
@@ -72,11 +72,52 @@ if ($role !== 1) {
         <!-- Main Section -->
         <div class="main-content flex-1 p-6 ml-64 flex flex-col">
             <h1 class="text-3xl font-bold text-purple-700 mb-6">Admin Dashboard</h1>
-            <p>Welcome, Admin! Select an option from the sidebar to get started.</p>
+
+            <!-- Teachers Table -->
+            <div class="overflow-x-auto">
+                <table class="min-w-full bg-white rounded-lg shadow-md">
+                    <thead>
+                        <tr class="bg-purple-700 text-white">
+                            <th class="py-3 px-4 text-left">Name</th>
+                            <th class="py-3 px-4 text-left">Email</th>
+                            <th class="py-3 px-4 text-left">Status</th>
+                            <th class="py-3 px-4 text-left">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($teachers as $teacher): ?>
+                            <tr class="border-b border-gray-200">
+                                <td class="py-3 px-4"><?= htmlspecialchars($teacher['name']) ?></td>
+                                <td class="py-3 px-4"><?= htmlspecialchars($teacher['email']) ?></td>
+                                <td class="py-3 px-4"><?= htmlspecialchars($teacher['status']) ?></td>
+                                <td class="py-3 px-4">
+                                    <div class="flex space-x-2">
+                                        <form action="activateTeacher.php" method="post">
+                                            <input type="hidden" name="teacher_id" value="<?= htmlspecialchars($teacher['idUser']) ?>">
+                                            <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">Activate</button>
+                                        </form>
+                                        <form action="suspendTeacher.php" method="post">
+                                            <input type="hidden" name="teacher_id" value="<?= htmlspecialchars($teacher['idUser']) ?>">
+                                            <button type="submit" class="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600">Suspend</button>
+                                        </form>
+                                        <form action="deleteTeacher.php" method="post">
+                                            <input type="hidden" name="teacher_id" value="<?= htmlspecialchars($teacher['idUser']) ?>">
+                                            <button type="submit" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">Delete</button>
+                                        </form>
+                                    </div>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
+            <!-- End Teachers Table -->
+
             <!-- This div pushes the footer to the bottom when content is not enough -->
             <div class="flex-grow"></div>
         </div>
     </div>
+
 
     <!-- Footer -->
     <footer class="bg-purple-700 p-4 mt-8">

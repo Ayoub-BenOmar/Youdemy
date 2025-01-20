@@ -57,7 +57,7 @@ $courses = Course::getAllCourses();
                     <a href="adminCourse.php" class="block py-2 px-4 rounded hover:bg-purple-800">Courses</a>
                 </li>
                 <li class="mb-4">
-                    <a href="#" class="block py-2 px-4 rounded hover:bg-purple-800">Teachers</a>
+                    <a href="allTeachers.php" class="block py-2 px-4 rounded hover:bg-purple-800">Teachers</a>
                 </li>
                 <li class="mb-4">
                     <a href="#" class="block py-2 px-4 rounded hover:bg-purple-800">Students</a>

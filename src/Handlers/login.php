@@ -9,6 +9,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
     
     try {
         $user = User::signin($email, $password);
+        if(empty($user)){
+            die("errrrrrrrrrrr kaoutar");
+        }
         // Store user information in the session
         $_SESSION['user_id'] = $user->getId();
         $_SESSION['user_name'] = $user->getName();
@@ -23,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
                 header('Location: ../Front/teacher/teacher.php');
                 break;
             case 3:
-                header('Location: /student/dashboard.php');
+                header('Location: ../Front/home.php');
                 break;
             default:
                 throw new Exception("Unknown role: {$user->getRoleId()}");

@@ -170,22 +170,46 @@ class User {
             throw new Exception("Email is already registered");
         }
 
-        // Create a new user object
-        $user = new User(null, $name, $email, null, 'active', $idRole, null);
-        $user->setPasswordHash($password); // Hash the password
+        if($idRole==3){
+            $user = new User(null, $name, $email, null, 'active', $idRole, null);
+            $user->setPasswordHash($password); // Hash the password
+            return $user->save();
+        }
+        if($idRole==2){
+            $user = new User(null, $name, $email, null, 'inactive', $idRole, null);
+            $user->setPasswordHash($password); // Hash the password
         return $user->save();
+        }
+        // Create a new user object
+        
     }
 
     // Method to login (signin)
     public static function signin($email, $password) {
+        // Trouver l'utilisateur par email
         $user = self::findByEmail($email);
-
-        // Check if user exists and password is correct
-        if (!$user || !password_verify($password, $user->passwordHash)) {
+        
+        // Vérifier si l'utilisateur existe
+        if (!$user) {
             throw new Exception("Invalid email or password");
         }
-
-        return $user; // Successful login
+    
+        // Vérifier si le mot de passe est correct
+        if (!password_verify($password, $user->passwordHash)) {
+            throw new Exception("Invalid email or password");
+        }
+    
+        // Vérifier le rôle et le statut de l'utilisateur
+        if ($user->getRoleId() == 2 && $user->getStatus() != "active") {
+            throw new Exception("Your account is not active.");
+        }
+    
+        if ($user->getRoleId() == 3 && $user->getStatus() != "active") {
+            throw new Exception("Your account is not active.");
+        }
+    
+        // Si toutes les vérifications sont passées, retourner l'utilisateur
+        return $user; // Successful login 
     }
 
     public static function logout() {

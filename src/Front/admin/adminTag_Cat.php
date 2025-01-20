@@ -35,7 +35,7 @@ $categories = Category::getAll();
 <body class="bg-gray-100 flex flex-col">
 
     <!-- Navbar -->
-    <nav class="bg-purple-700 p-4  w-full top-0 z-20">
+    <nav class="bg-purple-700 p-4 fixed w-full top-0 z-20">
         <div class="container mx-auto flex justify-between items-center">
             <a href="#" class="flex items-center text-white text-3xl font-bold">
                 <img src="../../Pics/logo_youdemy.png" alt="Youdemy Logo" class="h-10 w-10 mr-2">
@@ -47,7 +47,7 @@ $categories = Category::getAll();
     <!-- Main Content -->
     <div class="flex flex-1">
         <!-- Sidebar -->
-        <div class="sidebar bg-purple-700 min-h-screen p-4  top-16 left-0 z-10">
+        <div class="sidebar bg-purple-700 min-h-screen p-4 fixed top-16 left-0 z-10">
             <ul class="text-white">
                 <li class="mb-4">
                     <a href="adminDash.php" class="block py-2 px-4 rounded hover:bg-purple-800">Dashboard</a>
@@ -56,7 +56,7 @@ $categories = Category::getAll();
                     <a href="adminCourse.php" class="block py-2 px-4 rounded hover:bg-purple-800">Courses</a>
                 </li>
                 <li class="mb-4">
-                    <a href="#" class="block py-2 px-4 rounded hover:bg-purple-800">Teachers</a>
+                    <a href="allTeachers.php" class="block py-2 px-4 rounded hover:bg-purple-800">Teachers</a>
                 </li>
                 <li class="mb-4">
                     <a href="#" class="block py-2 px-4 rounded hover:bg-purple-800">Students</a>
